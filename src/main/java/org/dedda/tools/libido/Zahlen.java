@@ -1,7 +1,5 @@
 package org.dedda.tools.libido;
 
-import java.util.Map;
-
 import static java.lang.Math.E;
 import static java.lang.Math.PI;
 import static java.lang.Math.floor;
