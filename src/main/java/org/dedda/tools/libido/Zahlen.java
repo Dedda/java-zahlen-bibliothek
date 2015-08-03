@@ -16,8 +16,6 @@ import static java.lang.Math.toRadians;
  * Created by dedda on 7/31/15.
  *
  * @author dedda
- *
- *
  */
 public class Zahlen {
 

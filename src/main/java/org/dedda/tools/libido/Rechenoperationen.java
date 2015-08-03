@@ -17,6 +17,14 @@ public class Rechenoperationen {
         rechnung = "" + ersteZahl;
     }
 
+    /**
+     * Leitet den Anfang einer Rechnung ein.
+     *
+     * @param ersteZahl erster Operand für die erste Rechenoperation
+     * @return Rechnung, die weitergeführt oder mit #istGleich ausgewertet werden kann
+     *
+     * @see #istGleich()
+     */
     public static Rechenoperationen Rechne(final long ersteZahl) {
         return new Rechenoperationen(ersteZahl);
     }

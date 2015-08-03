@@ -13,6 +13,8 @@ import static org.dedda.tools.libido.Zahlen.Zwei;
 
 /**
  * Created by dedda on 7/31/15.
+ *
+ * @author dedda
  */
 public class Tester {
 
