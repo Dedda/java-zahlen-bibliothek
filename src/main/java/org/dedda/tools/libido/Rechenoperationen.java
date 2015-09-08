@@ -7,7 +7,7 @@ import static java.lang.Math.pow;
  *
  * @author dedda
  */
-public class Rechenoperationen {
+public final class Rechenoperationen {
 
     private long zahlBisJetzt;
     private String rechnung;

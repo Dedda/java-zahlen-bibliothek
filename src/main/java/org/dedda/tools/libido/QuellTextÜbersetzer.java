@@ -151,7 +151,7 @@ public class QuellTextÜbersetzer {
                         inEinemString = !inEinemString;
                     }
                 } else {
-                    if (heuhaufen.charAt(i-1) != '\\' && heuhaufen.charAt(i) == '"') {
+                    if (heuhaufen.charAt(i) != '\\' && heuhaufen.charAt(i+1) == '"') {
                         inEinemString = !inEinemString;
                     }
                 }
