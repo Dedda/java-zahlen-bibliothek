@@ -1,5 +1,7 @@
 package org.dedda.tools.libido;
 
+import java.lang.reflect.InvocationTargetException;
+
 import static org.dedda.tools.libido.Rechenoperationen.Rechne;
 import static org.dedda.tools.libido.Zahlen.*;
 
@@ -10,7 +12,11 @@ import static org.dedda.tools.libido.Zahlen.*;
  */
 public class Tester {
 
-    public static void main(String[] args) {
+    public static void main(String[] $args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Tester.class.getMethod("__main").invoke($args);
+    }
+
+    static void __main(String[] $args){
         Rechne(Eins()).plus(Fünf()).geteiltDurch(Drei()).istGleich();
         Rechne(Eins()).plus(Zwei()).teWurzelVon(Siebenundzwanzig()).istGleich();
         Rechne(Ers()).teWurzelVon(Vier()).istGleich();
@@ -24,7 +30,4 @@ public class Tester {
             System.out.println("FAAAALSCH");
         }
     }
-
-
-
 }
