@@ -16,9 +16,10 @@ public final class $ {
     public static Object $(final String $befehl) {
         ScriptEngine $motor = new ScriptEngineManager().getEngineByName("nashorn");
         try {
+            $motor.eval("load(\"nashorn:mozilla_compat.js\");");
             return $motor.eval($befehl);
-        } catch (ScriptException e) {
-            e.printStackTrace();
+        } catch (ScriptException $e) {
+            $e.printStackTrace();
             throw new RuntimeException("Das geht so nicht!");
         }
     }

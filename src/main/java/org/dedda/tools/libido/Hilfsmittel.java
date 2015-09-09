@@ -21,8 +21,8 @@ public final class Hilfsmittel {
         return $feld.length == 0;
     }
 
-    public static void echo(final Object objekt) {
-        System.out.println(objekt);
+    public static void echo(final Object $objekt) {
+        System.out.println($objekt);
     }
 
     private Hilfsmittel() {}
