@@ -16,11 +16,11 @@ public class Tester {
         Rechne(Ers()).teWurzelVon(Vier()).istGleich();
         Rechne(Einundzwanzig()).steWurzelVon(Neunzehn()).istGleich();
 
-        String text = "Hallo Ich bin \"Hallo\"\n  //Hallo \nHallo/*dasfgHallo*/\n";
-        String expected = "Penis Ich bin \"Hallo\"\n  //Hallo \nPenis/*dasfgHallo*/\n";
-        String actual = new QuellTextÜbersetzer().übersetzeWort(text, "Hallo", "Penis");
-        System.out.println(actual);
-        if (!expected.equals(actual)) {
+        String $text = "Hallo Ich bin \"Hallo\"\n  //Hallo \nHallo/*dasfgHallo*/\n";
+        String $expected = "Penis Ich bin \"Hallo\"\n  //Hallo \nPenis/*dasfgHallo*/\n";
+        String $actual = new QuellTextÜbersetzer().übersetzeWort($text, "Hallo", "Penis");
+        System.out.println($actual);
+        if (!$expected.equals($actual)) {
             System.out.println("FAAAALSCH");
         }
     }
