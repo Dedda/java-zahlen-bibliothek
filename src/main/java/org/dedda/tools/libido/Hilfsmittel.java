@@ -1,5 +1,7 @@
 package org.dedda.tools.libido;
 
+import java.util.Objects;
+
 /**
  * Created by dedda on 9/9/15.
  *
@@ -17,6 +19,10 @@ public final class Hilfsmittel {
 
     public static boolean leer(final Object[] $feld) {
         return $feld.length == 0;
+    }
+
+    public static void echo(final Object objekt) {
+        System.out.println(objekt);
     }
 
     private Hilfsmittel() {}

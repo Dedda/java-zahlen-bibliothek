@@ -1,6 +1,6 @@
 package org.dedda.tools.libido;
 
-import static java.lang.Math.pow;
+import static org.dedda.tools.libido.$.$;
 
 /**
  * Created by dedda on 7/31/15.
@@ -11,6 +11,7 @@ public final class Rechenoperationen {
 
     private long $zahlBisJetzt;
     private String $rechnung;
+    private Rechenoperationen $diese = this;
 
     public Rechenoperationen(long $ersteZahl) {
         this.$zahlBisJetzt = $ersteZahl;
@@ -30,38 +31,38 @@ public final class Rechenoperationen {
     }
 
     public Rechenoperationen plus(final long $zweiteZahl) {
-        this.$zahlBisJetzt += $zweiteZahl;
-        $rechnung += " + " + $zweiteZahl;
-        return this;
+        $diese.$zahlBisJetzt = (int) $($diese.$zahlBisJetzt + " + " + $zweiteZahl + ";");
+        $diese.$rechnung = (String) $($diese.$rechnung + " + \' + \' + " + $zweiteZahl + ";");
+        return $diese;
     }
 
     public Rechenoperationen minus(final long $zweiteZahl) {
-        this.$zahlBisJetzt -= $zweiteZahl;
-        $rechnung += " - " + $zweiteZahl;
-        return this;
+        $diese.$zahlBisJetzt = (int) $($diese.$zahlBisJetzt + " - " + $zweiteZahl + ";");
+        $diese.$rechnung = (String) $($diese.$rechnung + " + \' - \' + " + $zweiteZahl + ";");
+        return $diese;
     }
 
     public Rechenoperationen mal(final long $zweiteZahl) {
-        this.$zahlBisJetzt *= $zweiteZahl;
-        $rechnung += " * " + $zweiteZahl;
-        return this;
+        $diese.$zahlBisJetzt = (int) $($diese.$zahlBisJetzt + " * " + $zweiteZahl + ";");
+        $diese.$rechnung = (String) $($diese.$rechnung + " + \' * \' + " + $zweiteZahl + ";");
+        return $diese;
     }
 
     public Rechenoperationen geteiltDurch(final long $zweiteZahl) {
-        this.$zahlBisJetzt /= $zweiteZahl;
-        $rechnung += " / " + $zweiteZahl;
-        return this;
+        $diese.$zahlBisJetzt = (int) $($diese.$zahlBisJetzt + " / " + $zweiteZahl + ";");
+        $diese.$rechnung = (String) $($diese.$rechnung + " + \' / \' + " + $zweiteZahl + ";");
+        return $diese;
     }
 
     public long istGleich() {
-        System.out.println($rechnung + " = " + $zahlBisJetzt);
-        return $zahlBisJetzt;
+        System.out.println($diese.$rechnung + " = " + $diese.$zahlBisJetzt);
+        return $diese.$zahlBisJetzt;
     }
 
     public Rechenoperationen teWurzelVon(final long $zweiteZahl) {
-        $zahlBisJetzt = (long)pow($zweiteZahl, 1.0/ $zahlBisJetzt);
-        $rechnung = $zweiteZahl + " ^ (1/(" + $rechnung + "))";
-        return this;
+        $diese.$zahlBisJetzt = (int) ((double) $("Math.pow(" + $zweiteZahl + ", 1/(" + $diese.$zahlBisJetzt + "));"));
+        $diese.$rechnung = (String) $($zweiteZahl + " + \' ^ (1/(" + $diese.$rechnung + "))\';");
+        return $diese;
     }
 
     public Rechenoperationen steWurzelVon(final long $zweiteZahl) {
