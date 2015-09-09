@@ -13,10 +13,10 @@ import static org.dedda.tools.libido.Zahlen.*;
 public class Tester {
 
     public static void main(String[] $args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Tester.class.getMethod("__main").invoke($args);
+        Tester.class.getMethod("__main").invoke(new Tester());
     }
 
-    static void __main(String[] $args){
+    public void __main(){
         Rechne(Eins()).plus(Fünf()).geteiltDurch(Drei()).istGleich();
         Rechne(Eins()).plus(Zwei()).teWurzelVon(Siebenundzwanzig()).istGleich();
         Rechne(Ers()).teWurzelVon(Vier()).istGleich();
