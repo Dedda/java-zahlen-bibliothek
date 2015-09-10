@@ -1,6 +1,7 @@
 package org.dedda.tools.libido;
 
 import static org.dedda.tools.libido.$.$;
+import static org.dedda.tools.libido.$.$_ENV;
 
 /**
  * Created by dedda on 7/31/15.
@@ -31,26 +32,46 @@ public final class Rechenoperationen {
     }
 
     public Rechenoperationen plus(final long $zweiteZahl) {
+        long $startZeit = System.nanoTime();
         $diese.$zahlBisJetzt = (int) $($diese.$zahlBisJetzt + " + " + $zweiteZahl + ";");
         $diese.$rechnung = (String) $($diese.$rechnung + " + \' + \' + " + $zweiteZahl + ";");
+        long $endZeit = System.nanoTime();
+        if ($_ENV.get("Entkäferer").equals("eingeschaltet")) {
+            System.out.println("\'Plus\' in " + (($endZeit - $startZeit) / 1000000) + "ms ausgeführt");
+        }
         return $diese;
     }
 
     public Rechenoperationen minus(final long $zweiteZahl) {
+        long $startZeit = System.nanoTime();
         $diese.$zahlBisJetzt = (int) $($diese.$zahlBisJetzt + " - " + $zweiteZahl + ";");
         $diese.$rechnung = (String) $($diese.$rechnung + " + \' - \' + " + $zweiteZahl + ";");
+        long $endZeit = System.nanoTime();
+        if ($_ENV.get("Entkäferer").equals("eingeschaltet")) {
+            System.out.println("\'Minus\' in " + (($endZeit - $startZeit) / 1000000) + "ms ausgeführt");
+        }
         return $diese;
     }
 
     public Rechenoperationen mal(final long $zweiteZahl) {
+        long $startZeit = System.nanoTime();
         $diese.$zahlBisJetzt = (int) $($diese.$zahlBisJetzt + " * " + $zweiteZahl + ";");
         $diese.$rechnung = (String) $($diese.$rechnung + " + \' * \' + " + $zweiteZahl + ";");
+        long $endZeit = System.nanoTime();
+        if ($_ENV.get("Entkäferer").equals("eingeschaltet")) {
+            System.out.println("\'Mal\' in " + (($endZeit - $startZeit) / 1000000) + "ms ausgeführt");
+        }
         return $diese;
     }
 
     public Rechenoperationen geteiltDurch(final long $zweiteZahl) {
+        long $startZeit = System.nanoTime();
         $diese.$zahlBisJetzt = (int) $($diese.$zahlBisJetzt + " / " + $zweiteZahl + ";");
         $diese.$rechnung = (String) $($diese.$rechnung + " + \' / \' + " + $zweiteZahl + ";");
+        long $endZeit = System.nanoTime();
+        if ($_ENV.get("Entkäferer").equals("eingeschaltet")) {
+            System.out.println("\'Geteilt\' in " + (($endZeit - $startZeit) / 1000000) + "ms ausgeführt");
+        }
         return $diese;
     }
 
@@ -60,8 +81,13 @@ public final class Rechenoperationen {
     }
 
     public Rechenoperationen teWurzelVon(final long $zweiteZahl) {
+        long $startZeit = System.nanoTime();
         $diese.$zahlBisJetzt = (int) ((double) $("Math.pow(" + $zweiteZahl + ", 1/(" + $diese.$zahlBisJetzt + "));"));
         $diese.$rechnung = (String) $($zweiteZahl + " + \' ^ (1/(" + $diese.$rechnung + "))\';");
+        long $endZeit = System.nanoTime();
+        if ($_ENV.get("Entkäferer").equals("eingeschaltet")) {
+            System.out.println("\'Wurzel\' in " + (($endZeit - $startZeit) / 1000000) + "ms ausgeführt");
+        }
         return $diese;
     }
 
