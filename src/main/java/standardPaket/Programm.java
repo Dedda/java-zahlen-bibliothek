@@ -39,6 +39,10 @@ public class Programm {
         }
         Fabrik $textFabrik = FabrikErzeuger.gibMirEinenFabrikErzeuger().erzeugeEineFabrikFürDieseKlasse(String.class);
         System.out.println($textFabrik.fabriziere(1, "af", $argv));
+        Fabrik<FabrikErzeuger> $fabrikErzeugerFabrik = FabrikErzeuger.gibMirEinenFabrikErzeuger().erzeugeEineFabrikFürDieseKlasse(FabrikErzeuger.class);
+        FabrikErzeuger $fabrikErzeuger = $fabrikErzeugerFabrik.fabriziere();
+        $textFabrik = $fabrikErzeuger.erzeugeEineFabrikFürDieseKlasse(String.class);
+        System.out.println($textFabrik.fabriziere("Hello", ' ', "World!"));
     }
 
 }

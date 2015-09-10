@@ -5,8 +5,8 @@ package org.dedda.tools.libido;
  *
  * @author dedda
  */
-public interface Fabrik<T> {
+public interface Fabrik<$Typ> {
 
-    T fabriziere(Object... erzeugerParameter);
+    $Typ fabriziere(Object... $erzeugerParameter);
 
 }

@@ -16,16 +16,17 @@ public abstract class FabrikErzeuger {
                 {
                     Fabrik<$Typ> $fabrik = null;
                     switch ($klasse.getName()) {
-                        case "java.lang.String": {return new Fabrik<$Typ>() {
-                            @Override
-                            public $Typ fabriziere(Object... $erzeugerParameter) {
+                        case "java.lang.String": {
+                            return $erzeugerParameter -> {
                                 String $text = "";
                                 for (Object $aktuellesObjekt : $erzeugerParameter) {
                                     $text += $aktuellesObjekt;
                                 }
                                 return ($Typ) $text;
-                            }
-                        };}
+                            };}
+                        case "org.dedda.tools.libido.FabrikErzeuger": {
+                            return $erzeugerParameter -> ($Typ) FabrikErzeuger.gibMirEinenFabrikErzeuger();
+                        }
                     }
                     return $fabrik;
                 }
