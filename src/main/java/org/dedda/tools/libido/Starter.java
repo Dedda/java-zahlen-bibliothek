@@ -57,9 +57,11 @@ public class Starter {
         try {
             $startMethode.invoke($instanz);
         } catch (IllegalAccessException $e) {
-            System.out.println("Deine \'start()\'-Methode konnte nicht aufgerufen werden!");
+            $e.printStackTrace();
+//            System.out.println("Deine \'start()\'-Methode konnte nicht aufgerufen werden!");
         } catch (InvocationTargetException $e) {
-            System.out.println("Deine \'start()\'-Methode konnte nicht aufgerufen werden!");
+            $e.printStackTrace();
+//            System.out.println("Deine \'start()\'-Methode konnte nicht aufgerufen werden!");
         } catch (Exception $e) {
             System.out.println("Du scheinst kein guter Programmierer zu sein. Ich habe einen Fehler festgestellt!");
         }

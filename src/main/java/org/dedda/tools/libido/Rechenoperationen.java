@@ -2,6 +2,7 @@ package org.dedda.tools.libido;
 
 import static org.dedda.tools.libido.$.$;
 import static org.dedda.tools.libido.$.$_ENV;
+import static org.dedda.tools.libido.$._;
 
 /**
  * Created by dedda on 7/31/15.
@@ -10,13 +11,11 @@ import static org.dedda.tools.libido.$.$_ENV;
  */
 public final class Rechenoperationen {
 
-    private long $zahlBisJetzt;
-    private String $rechnung;
     private Rechenoperationen $diese = this;
 
     public Rechenoperationen(long $ersteZahl) {
-        this.$zahlBisJetzt = $ersteZahl;
-        $rechnung = "" + $ersteZahl;
+        _($diese, "$zahlBisJetzt", $ersteZahl);
+        _($diese, "$rechnung", "" + $ersteZahl);
     }
 
     /**
@@ -32,61 +31,61 @@ public final class Rechenoperationen {
     }
 
     public Rechenoperationen plus(final long $zweiteZahl) {
-        long $startZeit = System.nanoTime();
-        $diese.$zahlBisJetzt = (int) $($diese.$zahlBisJetzt + " + " + $zweiteZahl + ";");
-        $diese.$rechnung = (String) $($diese.$rechnung + " + \' + \' + " + $zweiteZahl + ";");
-        long $endZeit = System.nanoTime();
+        _($diese, "$startZeit", System.nanoTime());
+        _($diese, "$zahlBisJetzt", (int) $(_($diese, "$zahlBisJetzt") + " + " + $zweiteZahl + ";"));
+        _($diese, "$rechnung", (String) $(_($diese, "$rechnung") + " + \' + \' + " + $zweiteZahl + ";"));
+        _($diese, "$endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
-            System.out.println("\'Plus\' in " + (($endZeit - $startZeit) / 1000000) + "ms ausgeführt");
+            System.out.println("\'Plus\' in " + (((long) _($diese, "$endZeit") - (long) _($diese, "$startZeit")) / 1000000) + "ms ausgeführt");
         }
         return $diese;
     }
 
     public Rechenoperationen minus(final long $zweiteZahl) {
-        long $startZeit = System.nanoTime();
-        $diese.$zahlBisJetzt = (int) $($diese.$zahlBisJetzt + " - " + $zweiteZahl + ";");
-        $diese.$rechnung = (String) $($diese.$rechnung + " + \' - \' + " + $zweiteZahl + ";");
-        long $endZeit = System.nanoTime();
+        _($diese, "$startZeit", System.nanoTime());
+        _($diese, "$zahlBisJetzt", (int) $(_($diese, "$zahlBisJetzt") + " - " + $zweiteZahl + ";"));
+        _($diese, "$rechnung", (String) $(_($diese, "$rechnung") + " + \' - \' + " + $zweiteZahl + ";"));
+        _($diese, "$endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
-            System.out.println("\'Minus\' in " + (($endZeit - $startZeit) / 1000000) + "ms ausgeführt");
+            System.out.println("\'Minus\' in " + (((long) _($diese, "$endZeit") - (long) _($diese, "$startZeit")) / 1000000) + "ms ausgeführt");
         }
         return $diese;
     }
 
     public Rechenoperationen mal(final long $zweiteZahl) {
-        long $startZeit = System.nanoTime();
-        $diese.$zahlBisJetzt = (int) $($diese.$zahlBisJetzt + " * " + $zweiteZahl + ";");
-        $diese.$rechnung = (String) $($diese.$rechnung + " + \' * \' + " + $zweiteZahl + ";");
-        long $endZeit = System.nanoTime();
+        _($diese, "$startZeit", System.nanoTime());
+        _($diese, "$zahlBisJetzt", (int) $(_($diese, "$zahlBisJetzt") + " * " + $zweiteZahl + ";"));
+        _($diese, "$rechnung", (String) $(_($diese, "$rechnung") + " + \' * \' + " + $zweiteZahl + ";"));
+        _($diese, "$endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
-            System.out.println("\'Mal\' in " + (($endZeit - $startZeit) / 1000000) + "ms ausgeführt");
+            System.out.println("\'Mal\' in " + (((long) _($diese, "$endZeit") - (long) _($diese, "$startZeit")) / 1000000) + "ms ausgeführt");
         }
         return $diese;
     }
 
     public Rechenoperationen geteiltDurch(final long $zweiteZahl) {
-        long $startZeit = System.nanoTime();
-        $diese.$zahlBisJetzt = (int) $($diese.$zahlBisJetzt + " / " + $zweiteZahl + ";");
-        $diese.$rechnung = (String) $($diese.$rechnung + " + \' / \' + " + $zweiteZahl + ";");
-        long $endZeit = System.nanoTime();
+        _($diese, "$startZeit", System.nanoTime());
+        _($diese, "$zahlBisJetzt", (int) $(_($diese, "$zahlBisJetzt") + " / " + $zweiteZahl + ";"));
+        _($diese, "$rechnung", (String) $(_($diese, "$rechnung") + " + \' / \' + " + $zweiteZahl + ";"));
+        _($diese, "$endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
-            System.out.println("\'Geteilt\' in " + (($endZeit - $startZeit) / 1000000) + "ms ausgeführt");
+            System.out.println("\'Geteilt\' in " + (((long) _($diese, "$endZeit") - (long) _($diese, "$startZeit")) / 1000000) + "ms ausgeführt");
         }
         return $diese;
     }
 
     public long istGleich() {
-        System.out.println($diese.$rechnung + " = " + $diese.$zahlBisJetzt);
-        return $diese.$zahlBisJetzt;
+        System.out.println(_($diese, "$rechnung") + " = " + _($diese, "$zahlBisJetzt"));
+        return (int) _($diese, "$zahlBisJetzt");
     }
 
     public Rechenoperationen teWurzelVon(final long $zweiteZahl) {
-        long $startZeit = System.nanoTime();
-        $diese.$zahlBisJetzt = (int) ((double) $("Math.pow(" + $zweiteZahl + ", 1/(" + $diese.$zahlBisJetzt + "));"));
-        $diese.$rechnung = (String) $($zweiteZahl + " + \' ^ (1/(" + $diese.$rechnung + "))\';");
-        long $endZeit = System.nanoTime();
+        _( $diese, "$startZeit", System.nanoTime());
+        _($diese, "$zahlBisJetzt", (int) ((double) $("Math.pow(" + $zweiteZahl + ", 1/(" + _($diese, "$zahlBisJetzt") + "));")));
+        _($diese, "$rechnung", (String) $($zweiteZahl + " + \' ^ (1/(" + _($diese, "$rechnung") + "))\';"));
+        _($diese, "$endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
-            System.out.println("\'Wurzel\' in " + (($endZeit - $startZeit) / 1000000) + "ms ausgeführt");
+            System.out.println("\'Wurzel\' in " + (((long) _($diese, "$endZeit") - (long) _($diese, "$startZeit")) / 1000000) + "ms ausgeführt");
         }
         return $diese;
     }

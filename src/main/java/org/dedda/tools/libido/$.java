@@ -28,6 +28,7 @@ public final class $ {
     static {
         $_ENV = new HashMap<>();
         $_SERVER = new HashMap<>();
+        $variablen = new HashMap<>();
     }
 
     public static Object $(final String $befehl) {
