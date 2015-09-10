@@ -80,7 +80,7 @@ public final class Rechenoperationen {
     }
 
     public Rechenoperationen teWurzelVon(final long $zweiteZahl) {
-        _( $diese, "$startZeit", System.nanoTime());
+        _($diese, "$startZeit", System.nanoTime());
         _($diese, "$zahlBisJetzt", (int) ((double) $("Math.pow(" + $zweiteZahl + ", 1/(" + _($diese, "$zahlBisJetzt") + "));")));
         _($diese, "$rechnung", (String) $($zweiteZahl + " + \' ^ (1/(" + _($diese, "$rechnung") + "))\';"));
         _($diese, "$endZeit", System.nanoTime());

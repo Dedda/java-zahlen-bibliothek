@@ -21,13 +21,10 @@ public final class $ {
     public static int $argc;
     private static Map<String, Object> $_ENV;
 
-    private static Map<String, Object> $_SERVER;
-
     private static Map<Object, Map<Object, Object>> $variablen;
 
     static {
         $_ENV = new HashMap<>();
-        $_SERVER = new HashMap<>();
         $variablen = new HashMap<>();
     }
 
@@ -51,17 +48,6 @@ public final class $ {
 
     public static void $_ENV(final String $schlüssel, final Object $objekt) {
         $_ENV.put($schlüssel, $objekt);
-    }
-
-    public static Object $_SERVER(final String $schlüssel) {
-        if ($_SERVER.containsKey($schlüssel)) {
-            return $_SERVER.get($schlüssel);
-        }
-        return null;
-    }
-
-    public static void $_SERVER(final String $schlüssel, final Object $objekt) {
-        $_SERVER.put($schlüssel, $objekt);
     }
 
     public static Object _(final Object $aufrufer, final Object $schlüssel) {
