@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Dedda/lib-ido.svg?branch=master)](https://travis-ci.org/Dedda/lib-ido)
+
 # Lib-IDO
 
 Diese Java-Erweiterung soll Deutschsprachigen den Umgang mit Zahlen in Java vereinfachen.
