@@ -21,11 +21,10 @@ public class Starter {
         try {
             $argv = $args;
             $argc = $args.length;
-            $_ENV = new HashMap<>();
-            $_ENV.put("Entkäferer", "ausgeschaltet");
+            $_ENV("Entkäferer", "ausgeschaltet");
             for (String $arg : $args) {
                 if ($arg.equals("--entwanzen")) {
-                    $_ENV.put("Entkäferer", "eingeschaltet");
+                    $_ENV("Entkäferer", "eingeschaltet");
                 }
             }
         } catch (Exception $e) {
