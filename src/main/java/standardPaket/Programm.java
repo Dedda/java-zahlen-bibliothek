@@ -1,7 +1,11 @@
 package standardPaket;
 
+import org.dedda.tools.libido.$;
+import org.dedda.tools.libido.Fabrik;
+import org.dedda.tools.libido.FabrikErzeuger;
 import org.dedda.tools.libido.QuellTextÜbersetzer;
 
+import static org.dedda.tools.libido.$.$argv;
 import static org.dedda.tools.libido.Rechenoperationen.Rechne;
 import static org.dedda.tools.libido.Zahlen.Drei;
 import static org.dedda.tools.libido.Zahlen.Eins;
@@ -33,6 +37,8 @@ public class Programm {
         if (!$expected.equals($actual)) {
             System.out.println("FAAAALSCH");
         }
+        Fabrik $textFabrik = FabrikErzeuger.gibMirEinenFabrikErzeuger().erzeugeEineFabrikFürDieseKlasse(String.class);
+        System.out.println($textFabrik.fabriziere(1, "af", $argv));
     }
 
 }
