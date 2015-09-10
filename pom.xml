@@ -26,7 +26,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.dedda.tools.libido.Tester</mainClass>
+                            <mainClass>org.dedda.tools.libido.Starter</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
