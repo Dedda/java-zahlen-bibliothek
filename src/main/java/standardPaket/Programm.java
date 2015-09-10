@@ -6,6 +6,8 @@ import org.dedda.tools.libido.FabrikErzeuger;
 import org.dedda.tools.libido.QuellTextÜbersetzer;
 
 import static org.dedda.tools.libido.$.$argv;
+import static org.dedda.tools.libido.$._;
+import static org.dedda.tools.libido.$.__;
 import static org.dedda.tools.libido.Rechenoperationen.Rechne;
 import static org.dedda.tools.libido.Zahlen.Drei;
 import static org.dedda.tools.libido.Zahlen.Eins;
@@ -43,6 +45,12 @@ public class Programm {
         FabrikErzeuger $fabrikErzeuger = $fabrikErzeugerFabrik.fabriziere();
         $textFabrik = $fabrikErzeuger.erzeugeEineFabrikFürDieseKlasse(String.class);
         System.out.println($textFabrik.fabriziere("Hello", ' ', "World!"));
+        int $objekt = 1;
+        _($objekt, "$pimmel", 123);
+        _($objekt, "$penis", 321);
+        String $anweisung = "$pimmel + $penis ;";
+        String $aufgelöst = __($objekt, $anweisung);
+        System.out.println($aufgelöst);
     }
 
 }

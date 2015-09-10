@@ -5,6 +5,7 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -28,6 +29,12 @@ public final class $ {
         $variablen = new HashMap<>();
     }
 
+    /**
+     * Java-Skript ausführen.
+     *
+     * @param $befehl
+     * @return
+     */
     public static Object $(final String $befehl) {
         ScriptEngine $motor = new ScriptEngineManager().getEngineByName("nashorn");
         try {
@@ -39,6 +46,12 @@ public final class $ {
         }
     }
 
+    /**
+     * Umgebungsvariable auslesen.
+     *
+     * @param $schlüssel
+     * @return
+     */
     public static Object $_ENV(final String $schlüssel) {
         if ($_ENV.containsKey($schlüssel)) {
             return $_ENV.get($schlüssel);
@@ -46,10 +59,23 @@ public final class $ {
         return null;
     }
 
+    /**
+     * Umgebungsvariable setzen.
+     *
+     * @param $schlüssel
+     * @param $objekt
+     */
     public static void $_ENV(final String $schlüssel, final Object $objekt) {
         $_ENV.put($schlüssel, $objekt);
     }
 
+    /**
+     * Variable eines Objekts auslesen.
+     *
+     * @param $aufrufer
+     * @param $schlüssel
+     * @return
+     */
     public static Object _(final Object $aufrufer, final Object $schlüssel) {
         if (!$variablen.containsKey($aufrufer)) {
             return null;
@@ -60,11 +86,51 @@ public final class $ {
         return $variablen.get($aufrufer).get($schlüssel);
     }
 
+    /**
+     * Variable eines Objekts setzen.
+     *
+     * @param $aufrufer
+     * @param $schlüssel
+     * @param $wert
+     */
     public static void _(final Object $aufrufer, final Object $schlüssel, final Object $wert) {
         if (!$variablen.containsKey($aufrufer)) {
             $variablen.put($aufrufer, new HashMap<>());
         }
         $variablen.get($aufrufer).put($schlüssel, $wert);
+    }
+
+    /**
+     * Variablennamen in einem Text ersetzen.
+     *
+     * @param $aufrufer
+     * @param $text
+     * @return
+     */
+    public static String __(final Object $aufrufer, String $text) {
+        if (!$variablen.containsKey($aufrufer)) {
+            return null;
+        }
+        Map<Object, Object> $aufruferVariablen = $variablen.get($aufrufer);
+        Map<String, Object> $aufruferVariablenMitTextAlsId = new HashMap<>();
+        for (Object $variablenName : $aufruferVariablen.keySet()) {
+            if ($variablenName instanceof String) {
+                $aufruferVariablenMitTextAlsId.put((String) $variablenName, $aufruferVariablen.get($variablenName));
+            }
+        }
+        int $position = 0;
+
+        while (($position = $text.indexOf('$', $position)) != -1) {
+            String $ersterTeil = $text.substring(0, $position);
+            int $endeVomWort = $text.indexOf(' ', $position);
+            String $letzterTeil = $text.substring($endeVomWort);
+            String $wort = $text.substring($position, $endeVomWort);
+            boolean $wortExistiertAlsVariable = $aufruferVariablenMitTextAlsId.containsKey($wort);
+            if ($wortExistiertAlsVariable) {
+                $text = $ersterTeil + $aufruferVariablenMitTextAlsId.get($wort) + $letzterTeil;
+            }
+        }
+        return $text;
     }
 
     private $() {
