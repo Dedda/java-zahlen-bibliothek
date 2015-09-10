@@ -1,6 +1,5 @@
 package standardPaket;
 
-import org.dedda.tools.libido.$;
 import org.dedda.tools.libido.Fabrik;
 import org.dedda.tools.libido.FabrikErzeuger;
 import org.dedda.tools.libido.QuellTextÜbersetzer;
