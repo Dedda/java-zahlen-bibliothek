@@ -3,6 +3,8 @@ package org.dedda.tools.libido;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -120,7 +122,7 @@ public final class $ {
         }
         int $position = 0;
 
-        while (($position = $text.indexOf('$', $position)) != -1) {
+        while (($position = $text.indexOf('#', $position)) != -1) {
             String $ersterTeil = $text.substring(0, $position);
             int $endeVomWort = $text.indexOf(' ', $position);
             String $letzterTeil = $text.substring($endeVomWort);
@@ -128,6 +130,22 @@ public final class $ {
             boolean $wortExistiertAlsVariable = $aufruferVariablenMitTextAlsId.containsKey($wort);
             if ($wortExistiertAlsVariable) {
                 $text = $ersterTeil + $aufruferVariablenMitTextAlsId.get($wort) + $letzterTeil;
+                continue;
+            }
+            Class $klasse = $aufrufer.getClass();
+            Field $felder[] = $klasse.getFields();
+            for (Field $feld : $felder) {
+                if ($feld.getName().equals('$' + $wort.substring(1))) {
+                    $wortExistiertAlsVariable = true;
+                }
+            }
+            if ($wortExistiertAlsVariable) {
+                try {
+                    Field $feld = $klasse.getField('$' + $wort.substring(1));
+                    $text = $ersterTeil + $feld.get($aufrufer) + $letzterTeil;
+                } catch (Exception e) {
+                    return null;
+                }
             }
         }
         return $text;
