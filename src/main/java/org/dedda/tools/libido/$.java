@@ -146,6 +146,8 @@ public final class $ {
                 } catch (Exception e) {
                     return null;
                 }
+            } else {
+                return null;
             }
         }
         return $text;
