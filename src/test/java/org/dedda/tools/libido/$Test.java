@@ -2,6 +2,8 @@ package org.dedda.tools.libido;
 
 import org.junit.Test;
 
+import java.io.File;
+
 import static org.dedda.tools.libido.$.$;
 import static org.dedda.tools.libido.$.$_ENV;
 import static org.dedda.tools.libido.$._;
@@ -46,10 +48,25 @@ public class $Test {
     @Test
     public void test__() throws Exception {
         int $objekt = 1;
-        _(1, "$variable1", 1);
-        _(1, "$variable2", 2);
-        String $text = "$variable1 + $variable2 ;";
+        _(1, "#variable1", 1);
+        _(1, "#variable2", 2);
+        String $text = "#variable1 + #variable2 ;";
         String $ersetzt = __(1, $text);
         assertEquals("1 + 2 ;", $ersetzt);
+        Object $objekt2 = new $test$class(3);
+        _($objekt2, "#variable1", 4);
+        $text = "#variable1 + #variable3 ;";
+        $ersetzt = __($objekt2, $text);
+        assertEquals("4 + 3 ;", $ersetzt);
     }
+
+    private class $test$class {
+
+        public final int $variable3;
+
+        private $test$class(final int $variable3) {
+            this.$variable3 = $variable3;
+        }
+    }
+
 }

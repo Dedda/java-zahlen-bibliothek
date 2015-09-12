@@ -15,8 +15,8 @@ public final class Rechenoperationen {
     private Rechenoperationen $diese = this;
 
     public Rechenoperationen(long $ersteZahl) {
-        _($diese, "$zahlBisJetzt", $ersteZahl);
-        _($diese, "$rechnung", "" + $ersteZahl);
+        _($diese, "#zahlBisJetzt", $ersteZahl);
+        _($diese, "##rechnung", "" + $ersteZahl);
     }
 
     /**
@@ -32,66 +32,66 @@ public final class Rechenoperationen {
     }
 
     public Rechenoperationen plus(final long $zweiteZahl) {
-        _($diese, "$startZeit", System.nanoTime());
-        _($diese, "$zweiteZahl", $zweiteZahl);
-        _($diese, "$zahlBisJetzt", (int) $(__($diese, "$zahlBisJetzt + $zweiteZahl ;")));
-        _($diese, "$rechnung", (String) $(__($diese, "$rechnung + \' + \' + $zweiteZahl ;")));
-        _($diese, "$endZeit", System.nanoTime());
+        _($diese, "#startZeit", System.nanoTime());
+        _($diese, "#zweiteZahl", $zweiteZahl);
+        _($diese, "#zahlBisJetzt", (int) $(__($diese, "#zahlBisJetzt + #zweiteZahl ;")));
+        _($diese, "##rechnung", (String) $(__($diese, "##rechnung + \' + \' + #zweiteZahl ;")));
+        _($diese, "#endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
-            System.out.println("\'Plus\' in " + (((long) _($diese, "$endZeit") - (long) _($diese, "$startZeit")) / 1000000) + "ms ausgeführt");
+            System.out.println("\'Plus\' in " + (((long) _($diese, "#endZeit") - (long) _($diese, "#startZeit")) / 1000000) + "ms ausgeführt");
         }
         return $diese;
     }
 
     public Rechenoperationen minus(final long $zweiteZahl) {
-        _($diese, "$startZeit", System.nanoTime());
-        _($diese, "$zweiteZahl", $zweiteZahl);
-        _($diese, "$zahlBisJetzt", (int) $(__($diese, "$zahlBisJetzt - $zweiteZahl ;")));
-        _($diese, "$rechnung", (String) $(__($diese, "$rechnung + \' - \' + $zweiteZahl ;")));
-        _($diese, "$endZeit", System.nanoTime());
+        _($diese, "#startZeit", System.nanoTime());
+        _($diese, "#zweiteZahl", $zweiteZahl);
+        _($diese, "#zahlBisJetzt", (int) $(__($diese, "#zahlBisJetzt - #zweiteZahl ;")));
+        _($diese, "#rechnung", (String) $(__($diese, "#rechnung + \' - \' + #zweiteZahl ;")));
+        _($diese, "#endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
-            System.out.println("\'Minus\' in " + (((long) _($diese, "$endZeit") - (long) _($diese, "$startZeit")) / 1000000) + "ms ausgeführt");
+            System.out.println("\'Minus\' in " + (((long) _($diese, "#endZeit") - (long) _($diese, "#startZeit")) / 1000000) + "ms ausgeführt");
         }
         return $diese;
     }
 
     public Rechenoperationen mal(final long $zweiteZahl) {
-        _($diese, "$startZeit", System.nanoTime());
-        _($diese, "$zweiteZahl", $zweiteZahl);
-        _($diese, "$zahlBisJetzt", (int) $(__($diese, "$zahlBisJetzt * $zweiteZahl ;")));
-        _($diese, "$rechnung", (String) $(__($diese, "$rechnung + \' * \' + $zweiteZahl ;")));
-        _($diese, "$endZeit", System.nanoTime());
+        _($diese, "#startZeit", System.nanoTime());
+        _($diese, "#zweiteZahl", $zweiteZahl);
+        _($diese, "#zahlBisJetzt", (int) $(__($diese, "#zahlBisJetzt * #zweiteZahl ;")));
+        _($diese, "#rechnung", (String) $(__($diese, "#rechnung + \' * \' + #zweiteZahl ;")));
+        _($diese, "#endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
-            System.out.println("\'Mal\' in " + (((long) _($diese, "$endZeit") - (long) _($diese, "$startZeit")) / 1000000) + "ms ausgeführt");
+            System.out.println("\'Mal\' in " + (((long) _($diese, "#endZeit") - (long) _($diese, "#startZeit")) / 1000000) + "ms ausgeführt");
         }
         return $diese;
     }
 
     public Rechenoperationen geteiltDurch(final long $zweiteZahl) {
-        _($diese, "$startZeit", System.nanoTime());
-        _($diese, "$zweiteZahl", $zweiteZahl);
-        _($diese, "$zahlBisJetzt", (int) $(__($diese, "$zahlBisJetzt / $zweiteZahl ;")));
-        _($diese, "$rechnung", (String) $(__($diese, "$rechnung + \' / \' + $zweiteZahl ;")));
-        _($diese, "$endZeit", System.nanoTime());
+        _($diese, "#startZeit", System.nanoTime());
+        _($diese, "#zweiteZahl", $zweiteZahl);
+        _($diese, "#zahlBisJetzt", (int) $(__($diese, "#zahlBisJetzt / #zweiteZahl ;")));
+        _($diese, "#rechnung", (String) $(__($diese, "#rechnung + \' / \' + #zweiteZahl ;")));
+        _($diese, "#endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
-            System.out.println("\'Geteilt\' in " + (((long) _($diese, "$endZeit") - (long) _($diese, "$startZeit")) / 1000000) + "ms ausgeführt");
+            System.out.println("\'Geteilt\' in " + (((long) _($diese, "#endZeit") - (long) _($diese, "#startZeit")) / 1000000) + "ms ausgeführt");
         }
         return $diese;
     }
 
     public long istGleich() {
-        System.out.println(_($diese, "$rechnung") + " = " + _($diese, "$zahlBisJetzt"));
-        return (int) _($diese, "$zahlBisJetzt");
+        System.out.println(_($diese, "#rechnung") + " = " + _($diese, "#zahlBisJetzt"));
+        return (int) _($diese, "#zahlBisJetzt");
     }
 
     public Rechenoperationen teWurzelVon(final long $zweiteZahl) {
-        _($diese, "$startZeit", System.nanoTime());
-        _($diese, "$zweiteZahl", $zweiteZahl);
-        _($diese, "$zahlBisJetzt", (int) ((double) $(__($diese, "Math.pow($zweiteZahl , 1/($zahlBisJetzt ));"))));
-        _($diese, "$rechnung", (String) $(__($diese, "$zweiteZahl + \' ^ (1/($rechnung ))\';")));
-        _($diese, "$endZeit", System.nanoTime());
+        _($diese, "#startZeit", System.nanoTime());
+        _($diese, "#zweiteZahl", $zweiteZahl);
+        _($diese, "#zahlBisJetzt", (int) ((double) $(__($diese, "Math.pow(#zweiteZahl , 1/(#zahlBisJetzt ));"))));
+        _($diese, "#rechnung", (String) $(__($diese, "#zweiteZahl + \' ^ (1/(#rechnung ))\';")));
+        _($diese, "#endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
-            System.out.println("\'Wurzel\' in " + (((long) _($diese, "$endZeit") - (long) _($diese, "$startZeit")) / 1000000) + "ms ausgeführt");
+            System.out.println("\'Wurzel\' in " + (((long) _($diese, "#endZeit") - (long) _($diese, "#startZeit")) / 1000000) + "ms ausgeführt");
         }
         return $diese;
     }
