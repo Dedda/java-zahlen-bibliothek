@@ -24,15 +24,15 @@ public final class Rechenoperationen {
      *
      * @see #istGleich()
      */
-    public static Rechenoperationen Rechne(final Number $ersteZahl) {
-        return new Rechenoperationen($ersteZahl);
+    public static Rechenoperationen Rechne(final Object $ersteZahl) {
+        return new Rechenoperationen(__z($ersteZahl));
     }
 
-    public Rechenoperationen plus(final Number $zweiteZahl) {
+    public Rechenoperationen plus(final Object $zweiteZahl) {
         _($diese, "#startZeit", System.nanoTime());
-        _($diese, "#zweiteZahl", $zweiteZahl);
+        _($diese, "#zweiteZahl", __z($zweiteZahl));
         _($diese, "#zahlBisJetzt", __z($(__($diese, "#zahlBisJetzt + #zweiteZahl ;"))));
-        _($diese, "#rechnung", (String) $(__($diese, "#rechnung + \' + \' + #zweiteZahl ;")));
+        _($diese, "#rechnung", __t($(__($diese, "#rechnung + \' + \' + #zweiteZahl ;"))));
         _($diese, "#endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
             System.out.println("\'Plus\' in " + ((__gz(_($diese, "#endZeit")) - __gz(_($diese, "#startZeit"))) / 1000000) + "ms ausgeführt");
@@ -40,11 +40,11 @@ public final class Rechenoperationen {
         return $diese;
     }
 
-    public Rechenoperationen minus(final Number $zweiteZahl) {
+    public Rechenoperationen minus(final Object $zweiteZahl) {
         _($diese, "#startZeit", System.nanoTime());
-        _($diese, "#zweiteZahl", $zweiteZahl);
+        _($diese, "#zweiteZahl", __z($zweiteZahl));
         _($diese, "#zahlBisJetzt", __z($(__($diese, "#zahlBisJetzt - #zweiteZahl ;"))));
-        _($diese, "#rechnung", (String) $(__($diese, "#rechnung + \' - \' + #zweiteZahl ;")));
+        _($diese, "#rechnung", __t($(__($diese, "#rechnung + \' - \' + #zweiteZahl ;"))));
         _($diese, "#endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
             System.out.println("\'Minus\' in " + ((__gz(_($diese, "#endZeit")) - __gz(_($diese, "#startZeit"))) / 1000000) + "ms ausgeführt");
@@ -52,11 +52,11 @@ public final class Rechenoperationen {
         return $diese;
     }
 
-    public Rechenoperationen mal(final Number $zweiteZahl) {
+    public Rechenoperationen mal(final Object $zweiteZahl) {
         _($diese, "#startZeit", System.nanoTime());
-        _($diese, "#zweiteZahl", $zweiteZahl);
+        _($diese, "#zweiteZahl", __z($zweiteZahl));
         _($diese, "#zahlBisJetzt", __z($(__($diese, "#zahlBisJetzt * #zweiteZahl ;"))));
-        _($diese, "#rechnung", (String) $(__($diese, "#rechnung + \' * \' + #zweiteZahl ;")));
+        _($diese, "#rechnung", __t($(__($diese, "#rechnung + \' * \' + #zweiteZahl ;"))));
         _($diese, "#endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
             System.out.println("\'Mal\' in " + ((__gz(_($diese, "#endZeit")) - __gz(_($diese, "#startZeit"))) / 1000000) + "ms ausgeführt");
@@ -64,11 +64,11 @@ public final class Rechenoperationen {
         return $diese;
     }
 
-    public Rechenoperationen geteiltDurch(final Number $zweiteZahl) {
+    public Rechenoperationen geteiltDurch(final Object $zweiteZahl) {
         _($diese, "#startZeit", System.nanoTime());
-        _($diese, "#zweiteZahl", $zweiteZahl);
+        _($diese, "#zweiteZahl", __z($zweiteZahl));
         _($diese, "#zahlBisJetzt", __z($(__($diese, "#zahlBisJetzt / #zweiteZahl ;"))));
-        _($diese, "#rechnung", (String) $(__($diese, "#rechnung + \' / \' + #zweiteZahl ;")));
+        _($diese, "#rechnung", __t($(__($diese, "#rechnung + \' / \' + #zweiteZahl ;"))));
         _($diese, "#endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
             System.out.println("\'Geteilt\' in " + ((__gz(_($diese, "#endZeit")) - __gz(_($diese, "#startZeit"))) / 1000000) + "ms ausgeführt");
@@ -81,11 +81,11 @@ public final class Rechenoperationen {
         return (int) _($diese, "#zahlBisJetzt");
     }
 
-    public Rechenoperationen teWurzelVon(final Number $zweiteZahl) {
+    public Rechenoperationen teWurzelVon(final Object $zweiteZahl) {
         _($diese, "#startZeit", System.nanoTime());
-        _($diese, "#zweiteZahl", $zweiteZahl);
+        _($diese, "#zweiteZahl", __z($zweiteZahl));
         _($diese, "#zahlBisJetzt", __z($(__($diese, "Math.pow(#zweiteZahl , 1/(#zahlBisJetzt ));"))));
-        _($diese, "#rechnung", (String) $(__($diese, "#zweiteZahl + \' ^ (1/(#rechnung ))\';")));
+        _($diese, "#rechnung", __t($(__($diese, "#zweiteZahl + \' ^ (1/(#rechnung ))\';"))));
         _($diese, "#endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
             System.out.println("\'Wurzel\' in " + ((__gz(_($diese, "#endZeit")) - __gz(_($diese, "#startZeit"))) / 1000000) + "ms ausgeführt");
@@ -93,7 +93,7 @@ public final class Rechenoperationen {
         return $diese;
     }
 
-    public Rechenoperationen steWurzelVon(final Number $zweiteZahl) {
+    public Rechenoperationen steWurzelVon(final Object $zweiteZahl) {
         return teWurzelVon($zweiteZahl);
     }
 }
