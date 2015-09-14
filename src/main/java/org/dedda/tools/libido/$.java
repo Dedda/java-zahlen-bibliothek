@@ -153,6 +153,23 @@ public final class $ {
         return $text;
     }
 
+    public static boolean __b(final Object $objekt) {
+        if ($objekt == $NIL) {
+            return false;
+        }
+        if ($objekt instanceof Boolean) {
+            return (boolean) $objekt;
+        }
+        if ($objekt instanceof Number) {
+            return $objekt != (Number) 0;
+        }
+        if ($objekt instanceof String) {
+            String $alsText = (String) $objekt;
+            return $alsText.equals("1") || $alsText.equals("wahr") || $alsText.equals("#soTrue") || $alsText.equals("#trueStoryBro");
+        }
+        return true;
+    }
+
     private $() {
     }
 

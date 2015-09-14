@@ -4,10 +4,7 @@ import org.junit.Test;
 
 import java.io.File;
 
-import static org.dedda.tools.libido.$.$;
-import static org.dedda.tools.libido.$.$_ENV;
-import static org.dedda.tools.libido.$._;
-import static org.dedda.tools.libido.$.__;
+import static org.dedda.tools.libido.$.*;
 import static org.junit.Assert.*;
 
 /**
@@ -58,6 +55,19 @@ public class $Test {
         $text = "#variable1 + #variable3 ;";
         $ersetzt = __($objekt2, $text);
         assertEquals("4 + 3 ;", $ersetzt);
+    }
+
+    @Test
+    public void test__b() throws Exception {
+        Object[] $wahr = {true, 1, "1", "wahr", "#soTrue", "#trueStoryBro", new Object()};
+        Object[] $falsch = {false, 0, "das wird wohl falsch sein!", null};
+
+        for (Object $wahresObjekt : $wahr) {
+            assertTrue(__b($wahresObjekt));
+        }
+        for (Object $falschesObjekt : $falsch) {
+            assertFalse(__b($falschesObjekt));
+        }
     }
 
     private class $test$class {
