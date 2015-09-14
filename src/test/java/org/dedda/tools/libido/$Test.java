@@ -1,5 +1,6 @@
 package org.dedda.tools.libido;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -14,6 +15,11 @@ import static org.junit.Assert.*;
  * @author dedda
  */
 public class $Test {
+
+    @Before
+    public void setUp() {
+        $_ENV("Entkäferer", "ausgeschaltet");
+    }
 
     @Test
     public void test$() throws Exception {
@@ -89,8 +95,9 @@ public class $Test {
         $daten.put(new $Klasse$mit$Zahlen$und$Texten$und$Wahr$und$Falsch$Werten(), 25.4);
 
         for (Map.Entry $eintrag : $daten.entrySet()) {
-            assertTrue(__kz($eintrag.getValue()) <=__kz(__z($eintrag.getKey())) + 0.01);
-            assertTrue(__kz($eintrag.getValue()) >=__kz(__z($eintrag.getKey())) - 0.01);
+            Number $zahl = __z($eintrag.getKey());
+            assertTrue(__kz($eintrag.getValue()) <= __kz($zahl) + 0.01);
+            assertTrue(__kz($eintrag.getValue()) >=__kz($zahl) - 0.01);
         }
     }
 

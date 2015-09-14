@@ -248,21 +248,22 @@ public final class $ {
             if (Number.class.isAssignableFrom($feld.getType())) {
                 try {
                     Object $wert = $feld.get($objekt);
-                    $zahl += __kz($wert);
+                    double $neueZahl = __kz(Rechenoperationen.Rechne($zahl).plus(__kz($wert)).istGleich());
+                    $zahl = $neueZahl;
                 } catch (Exception $e) {}
             } else if (String.class.isAssignableFrom($feld.getType())) {
                 try {
                     String $text = __t($feld.get($objekt));
-                    $zahl += __kz($text);
+                    $zahl = __kz(Rechenoperationen.Rechne($zahl).plus(__kz($text)).istGleich());
                 } catch (IllegalAccessException $e) {}
             } else if (Boolean.class.isAssignableFrom($feld.getType())) {
                 try {
                     Boolean $wert = (Boolean) $feld.get($objekt);
-                    $zahl += __gz($wert);
+                    $zahl = __kz(Rechenoperationen.Rechne($zahl).plus(__gz($wert)).istGleich());
                 } catch (IllegalAccessException $e) {}
             } else {
                 try {
-                    $zahl += __kz($feld.get($objekt));
+                    $zahl = __kz(Rechenoperationen.Rechne($zahl).plus(__kz($feld.get($objekt))).istGleich());
                 } catch (IllegalAccessException e) {}
             }
         }

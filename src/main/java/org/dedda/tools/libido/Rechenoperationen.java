@@ -78,7 +78,7 @@ public final class Rechenoperationen {
 
     public Number istGleich() {
         System.out.println(_($diese, "#rechnung") + " = " + _($diese, "#zahlBisJetzt"));
-        return (int) _($diese, "#zahlBisJetzt");
+        return __z(_($diese, "#zahlBisJetzt"));
     }
 
     public Rechenoperationen teWurzelVon(final Object $zweiteZahl) {
