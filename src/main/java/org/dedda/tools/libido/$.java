@@ -153,6 +153,11 @@ public final class $ {
         return $text;
     }
 
+    /**
+     * Eins oder Null
+     * @param $objekt
+     * @return
+     */
     public static boolean __eon(final Object $objekt) {
         if ($objekt == $NIL) {
             return false;
@@ -170,6 +175,11 @@ public final class $ {
         return true;
     }
 
+    /**
+     * Zahl
+     * @param $objekt
+     * @return
+     */
     public static Number __z(final Object $objekt) {
         if ($objekt == $NIL) {
             return 0;
@@ -197,14 +207,29 @@ public final class $ {
         return ___$umme($objekt);
     }
 
+    /**
+     * Ganzzahl
+     * @param $objekt
+     * @return
+     */
     public static long __gz(final Object $objekt) {
         return __z($objekt).longValue();
     }
 
+    /**
+     * Kommazahl
+     * @param $objekt
+     * @return
+     */
     public static double __kz(final Object $objekt) {
         return __z($objekt).doubleValue();
     }
 
+    /**
+     * Text
+     * @param $objekt
+     * @return
+     */
     public static String __t(final Object $objekt) {
         if ($objekt instanceof String) {
             return (String) $objekt;
