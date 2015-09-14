@@ -153,6 +153,122 @@ public final class $ {
         return $text;
     }
 
+    /**
+     * Eins oder Null
+     * @param $objekt
+     * @return
+     */
+    public static boolean __eon(final Object $objekt) {
+        if ($objekt == $NIL) {
+            return false;
+        }
+        if ($objekt instanceof Boolean) {
+            return (boolean) $objekt;
+        }
+        if ($objekt instanceof Number) {
+            return $objekt != (Number) 0;
+        }
+        if ($objekt instanceof String) {
+            String $alsText = __t($objekt);
+            return $alsText.equals("1") || $alsText.equals("wahr") || $alsText.equals("#soTrue") || $alsText.equals("#trueStoryBro");
+        }
+        return true;
+    }
+
+    /**
+     * Zahl
+     * @param $objekt
+     * @return
+     */
+    public static Number __z(final Object $objekt) {
+        if ($objekt == $NIL) {
+            return 0;
+        }
+        if ($objekt instanceof Number) {
+            return (Number) $objekt;
+        }
+        if ($objekt instanceof String) {
+            if (__t($objekt).contains(".")) {
+                try {
+                    return Double.parseDouble(__t($objekt));
+                } catch (Exception $e) {
+                    return 0;
+                }
+            }
+            try {
+                return Long.parseLong(__t($objekt));
+            } catch (Exception $e) {
+                return __eon($objekt) ? 1 : 0;
+            }
+        }
+        if ($objekt instanceof Boolean) {
+            return (Boolean) $objekt ? 1 : 0;
+        }
+        return ___$umme($objekt);
+    }
+
+    /**
+     * Ganzzahl
+     * @param $objekt
+     * @return
+     */
+    public static long __gz(final Object $objekt) {
+        return __z($objekt).longValue();
+    }
+
+    /**
+     * Kommazahl
+     * @param $objekt
+     * @return
+     */
+    public static double __kz(final Object $objekt) {
+        return __z($objekt).doubleValue();
+    }
+
+    /**
+     * Text
+     * @param $objekt
+     * @return
+     */
+    public static String __t(final Object $objekt) {
+        if ($objekt instanceof String) {
+            return (String) $objekt;
+        }
+        try {
+            String $text = (String) $objekt;
+            return $text;
+        } catch (Exception $e) {}
+        return $objekt.toString();
+    }
+
+    private static Number ___$umme(final Object $objekt) {
+        double $zahl = 0;
+        Field[] $felder = $objekt.getClass().getFields();
+        for (Field $feld : $felder) {
+            if (Number.class.isAssignableFrom($feld.getType())) {
+                try {
+                    Object $wert = $feld.get($objekt);
+                    $zahl = __kz(Rechenoperationen.Rechne($zahl).plus(__kz($wert)).istGleich());
+                } catch (Exception $e) {}
+            } else if (String.class.isAssignableFrom($feld.getType())) {
+                try {
+                    String $text = __t($feld.get($objekt));
+                    $zahl = __kz(Rechenoperationen.Rechne($zahl).plus(__kz($text)).istGleich());
+                } catch (IllegalAccessException $e) {}
+            } else if (Boolean.class.isAssignableFrom($feld.getType())) {
+                try {
+                    Boolean $wert = (Boolean) $feld.get($objekt);
+                    $zahl = __kz(Rechenoperationen.Rechne($zahl).plus(__gz($wert)).istGleich());
+                } catch (IllegalAccessException $e) {}
+            } else {
+                try {
+                    $zahl = __kz(Rechenoperationen.Rechne($zahl).plus(__kz($feld.get($objekt))).istGleich());
+                } catch (IllegalAccessException e) {}
+            }
+        }
+        return $zahl;
+    }
+
     private $() {
     }
 

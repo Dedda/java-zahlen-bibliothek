@@ -1,7 +1,5 @@
 package org.dedda.tools.libido;
 
-import java.lang.reflect.ParameterizedType;
-
 /**
  * Created by dedda on 9/10/15.
  *
