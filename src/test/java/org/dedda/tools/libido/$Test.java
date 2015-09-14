@@ -2,8 +2,6 @@ package org.dedda.tools.libido;
 
 import org.junit.Test;
 
-import java.io.File;
-
 import static org.dedda.tools.libido.$.*;
 import static org.junit.Assert.*;
 
@@ -58,15 +56,15 @@ public class $Test {
     }
 
     @Test
-    public void test__b() throws Exception {
+    public void test__eon() throws Exception {
         Object[] $wahr = {true, 1, "1", "wahr", "#soTrue", "#trueStoryBro", new Object()};
-        Object[] $falsch = {false, 0, "das wird wohl falsch sein!", null};
+        Object[] $falsch = {false, 0, "das wird wohl falsch sein!", $NIL};
 
         for (Object $wahresObjekt : $wahr) {
-            assertTrue(__b($wahresObjekt));
+            assertTrue(__eon($wahresObjekt));
         }
         for (Object $falschesObjekt : $falsch) {
-            assertFalse(__b($falschesObjekt));
+            assertFalse(__eon($falschesObjekt));
         }
     }
 

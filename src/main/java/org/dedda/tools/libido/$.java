@@ -153,7 +153,7 @@ public final class $ {
         return $text;
     }
 
-    public static boolean __b(final Object $objekt) {
+    public static boolean __eon(final Object $objekt) {
         if ($objekt == $NIL) {
             return false;
         }
@@ -168,6 +168,83 @@ public final class $ {
             return $alsText.equals("1") || $alsText.equals("wahr") || $alsText.equals("#soTrue") || $alsText.equals("#trueStoryBro");
         }
         return true;
+    }
+
+    public static Number __z(final Object $objekt) {
+        if ($objekt == $NIL) {
+            return 0;
+        }
+        if ($objekt instanceof Number) {
+            return (Number) $objekt;
+        }
+        if ($objekt instanceof String) {
+            if (((String) $objekt).contains(".")) {
+                try {
+                    return Double.parseDouble((String) $objekt);
+                } catch (Exception $e) {
+                    return 0;
+                }
+            }
+            try {
+                return Long.parseLong((String) $objekt);
+            } catch (Exception $e) {
+                return 0;
+            }
+        }
+        return 0;
+    }
+
+    public static long __gz(final Object $objekt) {
+        return (long) __z($objekt);
+    }
+
+    public static double __kz(final Object $objekt) {
+        return (double) __z($objekt);
+    }
+
+    private static Number ___$umme(final Object $objekt) {
+        double $zahlMitKomma = 0;
+        long $zahlOhneKomma = 0;
+        boolean $zahlHatKomma = false;
+        Field[] $felder = $objekt.getClass().getFields();
+        for (Field $feld : $felder) {
+            if (Number.class.isAssignableFrom($feld.getType())) {
+                try {
+                    Object $wert = $feld.get($objekt);
+                    if ($wert instanceof Double || $wert instanceof Float) {
+                        $zahlHatKomma = true;
+                        $zahlMitKomma += (Double) ((Number) $wert);
+                    } else {
+                        if (!$zahlHatKomma) {
+                            $zahlOhneKomma += (Long) ((Number) $wert);
+                        }
+                        $zahlMitKomma += (Long) ((Number) $wert);
+                    }
+                } catch (Exception $e) {}
+            } else if (String.class.isAssignableFrom($feld.getType())) {
+                try {
+                    String $text = (String) $feld.get($objekt);
+                    Number $zahl = __z($text);
+                    if ($zahl instanceof Double || $zahl instanceof Float) {
+                        $zahlHatKomma = true;
+                        $zahlMitKomma += (Double) ((Number) $zahl);
+                    } else {
+                        if (!$zahlHatKomma) {
+                            $zahlOhneKomma += (Long) ((Number) $zahl);
+                        }
+                        $zahlMitKomma += (Long) ((Number) $zahl);
+                    }
+                } catch (IllegalAccessException $e) {}
+            } else if (Boolean.class.isAssignableFrom($feld.getType())) {
+                try {
+                    if (!$zahlHatKomma) {
+                        $zahlMitKomma += (Boolean) $feld.get($objekt) ? 1 : 0;
+                    }
+                    $zahlOhneKomma += (Boolean) $feld.get($objekt) ? 1 : 0;
+                } catch (IllegalAccessException $e) {}
+            }
+        }
+        return $zahlHatKomma ? $zahlMitKomma : $zahlOhneKomma;
     }
 
     private $() {
