@@ -248,8 +248,7 @@ public final class $ {
             if (Number.class.isAssignableFrom($feld.getType())) {
                 try {
                     Object $wert = $feld.get($objekt);
-                    double $neueZahl = __kz(Rechenoperationen.Rechne($zahl).plus(__kz($wert)).istGleich());
-                    $zahl = $neueZahl;
+                    $zahl = __kz(Rechenoperationen.Rechne($zahl).plus(__kz($wert)).istGleich());
                 } catch (Exception $e) {}
             } else if (String.class.isAssignableFrom($feld.getType())) {
                 try {
