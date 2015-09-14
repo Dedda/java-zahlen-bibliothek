@@ -9,6 +9,7 @@ import java.util.HashMap;
 import static org.dedda.tools.libido.$.$_ENV;
 import static org.dedda.tools.libido.$.$argc;
 import static org.dedda.tools.libido.$.$argv;
+import static org.dedda.tools.libido.Hilfsmittel.echo;
 
 /**
  * Created by dedda on 7/31/15.
@@ -28,42 +29,42 @@ public class Starter {
                 }
             }
         } catch (Exception $e) {
-            System.out.println("Das war wohl ein interner Fehler!");
+            echo("Das war wohl ein interner Fehler!");
         }
         Class $programmKlasse = null;
         try {
             $programmKlasse = Class.forName("standardPaket.Programm");
         } catch (ClassNotFoundException $e) {
-            System.out.println("Du hast wohl keine \'standardPaket.Programm\'-Klasse erstellt!");
+            echo("Du hast wohl keine \'standardPaket.Programm\'-Klasse erstellt!");
         }
         Method $startMethode = null;
         try {
             $startMethode = $programmKlasse.getMethod("start");
         } catch (NoSuchMethodException $e) {
-            System.out.println("In deiner \'standardPaket.Programm\'-Klasse gibt es wohl keine \'start()\'-Methode!");
+            echo("In deiner \'standardPaket.Programm\'-Klasse gibt es wohl keine \'start()\'-Methode!");
         }
         Constructor $erschaffer = null;
         try {
              $erschaffer = $programmKlasse.getConstructor();
         } catch (NoSuchMethodException $e) {
-            System.out.println("Da scheint was mit deinem Konstruktor nicht zu stimmen!");
+            echo("Da scheint was mit deinem Konstruktor nicht zu stimmen!");
         }
         Object $instanz = null;
         try {
             $instanz = $erschaffer.newInstance();
         } catch (Exception $e) {
-            System.out.println("Fehler beim Instanziieren!");
+            echo("Fehler beim Instanziieren!");
         }
         try {
             $startMethode.invoke($instanz);
         } catch (IllegalAccessException $e) {
             $e.printStackTrace();
-//            System.out.println("Deine \'start()\'-Methode konnte nicht aufgerufen werden!");
+//            echo("Deine \'start()\'-Methode konnte nicht aufgerufen werden!");
         } catch (InvocationTargetException $e) {
             $e.printStackTrace();
-//            System.out.println("Deine \'start()\'-Methode konnte nicht aufgerufen werden!");
+//            echo("Deine \'start()\'-Methode konnte nicht aufgerufen werden!");
         } catch (Exception $e) {
-            System.out.println("Du scheinst kein guter Programmierer zu sein. Ich habe einen Fehler festgestellt!");
+            echo("Du scheinst kein guter Programmierer zu sein. Ich habe einen Fehler festgestellt!");
         }
     }
 

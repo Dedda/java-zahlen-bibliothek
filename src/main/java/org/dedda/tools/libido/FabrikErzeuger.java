@@ -1,5 +1,7 @@
 package org.dedda.tools.libido;
 
+import static org.dedda.tools.libido.$.$NIL;
+
 /**
  * Created by dedda on 9/10/15.
  *
@@ -12,7 +14,6 @@ public abstract class FabrikErzeuger {
             @Override
             public <$Typ> Fabrik<$Typ> erzeugeEineFabrikFürDieseKlasse(final Class<$Typ> $klasse) {
                 {
-                    Fabrik<$Typ> $fabrik = null;
                     switch ($klasse.getName()) {
                         case "java.lang.String": {
                             return $erzeugerParameter -> {
@@ -26,7 +27,7 @@ public abstract class FabrikErzeuger {
                             return $erzeugerParameter -> ($Typ) FabrikErzeuger.gibMirEinenFabrikErzeuger();
                         }
                     }
-                    return $fabrik;
+                    return (Fabrik<$Typ>) $NIL;
                 }
             }
         };

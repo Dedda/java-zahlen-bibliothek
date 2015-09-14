@@ -4,6 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import static java.util.UUID.randomUUID;
+import static org.dedda.tools.libido.$.__gz;
+import static org.dedda.tools.libido.Rechenoperationen.Rechne;
+import static org.dedda.tools.libido.Zahlen.Eins;
+
 /**
  * Created by dedda on 9/11/15.
  *
@@ -23,11 +28,10 @@ public class Objekt {
     }
 
     public Objekt() {
-        this.$uuid = UUID.randomUUID();
+        this.$uuid = randomUUID();
         if ($objekte.containsKey($uuid)) {
             long $id = $idZähler.get($uuid);
-            $id++;
-            this.$id = $id;
+            this.$id = __gz(Rechne($id).plus(Eins()).istGleich());
             $objekte.get($uuid).put($id, this);
         } else {
             long $id = 1;

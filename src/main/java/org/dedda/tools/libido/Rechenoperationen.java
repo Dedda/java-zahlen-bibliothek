@@ -1,6 +1,7 @@
 package org.dedda.tools.libido;
 
 import static org.dedda.tools.libido.$.*;
+import static org.dedda.tools.libido.Hilfsmittel.echo;
 
 /**
  * Created by dedda on 7/31/15.
@@ -35,7 +36,7 @@ public final class Rechenoperationen {
         _($diese, "#rechnung", __t($(__($diese, "#rechnung + \' + \' + #zweiteZahl ;"))));
         _($diese, "#endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
-            System.out.println("\'Plus\' in " + ((__gz(_($diese, "#endZeit")) - __gz(_($diese, "#startZeit"))) / 1000000) + "ms ausgeführt");
+            echo("\'Plus\' in " + ((__gz(_($diese, "#endZeit")) - __gz(_($diese, "#startZeit"))) / 1000000) + "ms ausgeführt");
         }
         return $diese;
     }
@@ -47,7 +48,7 @@ public final class Rechenoperationen {
         _($diese, "#rechnung", __t($(__($diese, "#rechnung + \' - \' + #zweiteZahl ;"))));
         _($diese, "#endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
-            System.out.println("\'Minus\' in " + ((__gz(_($diese, "#endZeit")) - __gz(_($diese, "#startZeit"))) / 1000000) + "ms ausgeführt");
+            echo("\'Minus\' in " + ((__gz(_($diese, "#endZeit")) - __gz(_($diese, "#startZeit"))) / 1000000) + "ms ausgeführt");
         }
         return $diese;
     }
@@ -59,7 +60,7 @@ public final class Rechenoperationen {
         _($diese, "#rechnung", __t($(__($diese, "#rechnung + \' * \' + #zweiteZahl ;"))));
         _($diese, "#endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
-            System.out.println("\'Mal\' in " + ((__gz(_($diese, "#endZeit")) - __gz(_($diese, "#startZeit"))) / 1000000) + "ms ausgeführt");
+            echo("\'Mal\' in " + ((__gz(_($diese, "#endZeit")) - __gz(_($diese, "#startZeit"))) / 1000000) + "ms ausgeführt");
         }
         return $diese;
     }
@@ -71,13 +72,13 @@ public final class Rechenoperationen {
         _($diese, "#rechnung", __t($(__($diese, "#rechnung + \' / \' + #zweiteZahl ;"))));
         _($diese, "#endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
-            System.out.println("\'Geteilt\' in " + ((__gz(_($diese, "#endZeit")) - __gz(_($diese, "#startZeit"))) / 1000000) + "ms ausgeführt");
+            echo("\'Geteilt\' in " + ((__gz(_($diese, "#endZeit")) - __gz(_($diese, "#startZeit"))) / 1000000) + "ms ausgeführt");
         }
         return $diese;
     }
 
     public Number istGleich() {
-        System.out.println(_($diese, "#rechnung") + " = " + _($diese, "#zahlBisJetzt"));
+        echo(_($diese, "#rechnung") + " = " + _($diese, "#zahlBisJetzt"));
         return __z(_($diese, "#zahlBisJetzt"));
     }
 
@@ -88,7 +89,7 @@ public final class Rechenoperationen {
         _($diese, "#rechnung", __t($(__($diese, "#zweiteZahl + \' ^ (1/(#rechnung ))\';"))));
         _($diese, "#endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
-            System.out.println("\'Wurzel\' in " + ((__gz(_($diese, "#endZeit")) - __gz(_($diese, "#startZeit"))) / 1000000) + "ms ausgeführt");
+            echo("\'Wurzel\' in " + ((__gz(_($diese, "#endZeit")) - __gz(_($diese, "#startZeit"))) / 1000000) + "ms ausgeführt");
         }
         return $diese;
     }

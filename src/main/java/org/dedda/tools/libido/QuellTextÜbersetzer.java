@@ -8,6 +8,8 @@ import java.lang.String;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.dedda.tools.libido.Hilfsmittel.echo;
+
 /**
  * Created by dedda on 9/4/15.
  *
@@ -71,14 +73,14 @@ public class QuellTextÜbersetzer {
         for (String $arg : $argumente) {
             File $datei = new File($arg);
             if (!$datei.exists()) {
-                System.out.println("Datei " + $arg + " existiert nicht!");
+                echo("Datei " + $arg + " existiert nicht!");
                 System.exit(1);
             }
             $dateien[i++] = $datei;
         }
         for (File $datei : $dateien) {
             String $neueDatei = $datei.getAbsolutePath().substring(0, $datei.getAbsolutePath().lastIndexOf(".")) + ".java";
-            System.out.println("Übersetze in java-datei: " + $neueDatei);
+            echo("Übersetze in java-datei: " + $neueDatei);
             byte[] $dateiInhaltAlsBytes = new byte[(int) $datei.length()];
             new FileInputStream($datei).read($dateiInhaltAlsBytes);
             String $dateiInhalt = new String($dateiInhaltAlsBytes);
