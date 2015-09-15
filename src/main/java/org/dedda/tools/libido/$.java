@@ -5,6 +5,7 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -241,6 +242,18 @@ public final class $ {
         return $objekt.toString();
     }
 
+    /**
+     * Symbol
+     * @param $objekt
+     * @return
+     */
+    public static Character __s(final Object $objekt) {
+        _($.class, "__s#$zahl", __gz($objekt));
+        _($.class, "__s#$stücke", ByteBuffer.allocate(8).putLong(__gz(_($.class, "__s#$zahl"))).array());
+        _($.class, "__s#$index", (int) (__gz(_($.class, "__s#$zahl")) % 8));
+        return (char) ((byte[]) _($.class, "__s#$stücke"))[(int) _($.class, "__s#$index")];
+    }
+
     private static Number ___$umme(final Object $objekt) {
         double $zahl = 0;
         Field[] $felder = $objekt.getClass().getFields();
@@ -268,6 +281,8 @@ public final class $ {
         }
         return $zahl;
     }
+
+
 
     private $() {
     }
