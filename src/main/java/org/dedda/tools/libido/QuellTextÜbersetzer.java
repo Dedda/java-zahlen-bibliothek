@@ -1,10 +1,8 @@
 package org.dedda.tools.libido;
 
-import java.io.*;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
-import java.lang.Exception;
-import java.lang.String;
 import java.util.HashMap;
 import java.util.Map;
 

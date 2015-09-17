@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.dedda.tools.libido.$.$;
 import static org.dedda.tools.libido.$.*;
 import static org.junit.Assert.*;
 

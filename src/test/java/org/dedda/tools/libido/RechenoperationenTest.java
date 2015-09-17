@@ -5,8 +5,7 @@ import org.junit.Test;
 
 import static org.dedda.tools.libido.$.$_ENV;
 import static org.dedda.tools.libido.$._;
-import static org.dedda.tools.libido.$.__;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by dedda on 9/14/15.

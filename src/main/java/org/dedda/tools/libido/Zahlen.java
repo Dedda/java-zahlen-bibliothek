@@ -6,8 +6,9 @@ import javax.json.JsonReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import static org.dedda.tools.libido.$.__z;
+
 import static org.dedda.tools.libido.$.$;
+import static org.dedda.tools.libido.$.__z;
 
 /**
  * Created by dedda on 7/31/15.

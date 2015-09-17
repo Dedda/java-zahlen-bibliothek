@@ -1,5 +1,6 @@
 package org.dedda.tools.libido;
 
+import static org.dedda.tools.libido.$.$;
 import static org.dedda.tools.libido.$.*;
 import static org.dedda.tools.libido.Hilfsmittel.echo;
 

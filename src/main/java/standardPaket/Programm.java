@@ -4,20 +4,10 @@ import org.dedda.tools.libido.Fabrik;
 import org.dedda.tools.libido.FabrikErzeuger;
 import org.dedda.tools.libido.QuellTextÜbersetzer;
 
-import static org.dedda.tools.libido.$.$argv;
-import static org.dedda.tools.libido.$._;
-import static org.dedda.tools.libido.$.__;
+import static org.dedda.tools.libido.$.*;
 import static org.dedda.tools.libido.Hilfsmittel.echo;
 import static org.dedda.tools.libido.Rechenoperationen.Rechne;
-import static org.dedda.tools.libido.Zahlen.Drei;
-import static org.dedda.tools.libido.Zahlen.Eins;
-import static org.dedda.tools.libido.Zahlen.Einundzwanzig;
-import static org.dedda.tools.libido.Zahlen.Ers;
-import static org.dedda.tools.libido.Zahlen.Fünf;
-import static org.dedda.tools.libido.Zahlen.Neunzehn;
-import static org.dedda.tools.libido.Zahlen.Siebenundzwanzig;
-import static org.dedda.tools.libido.Zahlen.Vier;
-import static org.dedda.tools.libido.Zahlen.Zwei;
+import static org.dedda.tools.libido.Zahlen.*;
 
 /**
  * Created by dedda on 9/9/15.

@@ -1,14 +1,10 @@
 package org.dedda.tools.libido;
 
-import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.HashMap;
 
-import static org.dedda.tools.libido.$.$_ENV;
-import static org.dedda.tools.libido.$.$argc;
-import static org.dedda.tools.libido.$.$argv;
+import static org.dedda.tools.libido.$.*;
 import static org.dedda.tools.libido.Hilfsmittel.echo;
 
 /**
