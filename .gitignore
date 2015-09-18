@@ -13,3 +13,4 @@ hs_err_pid*
 java-zahlen-bibliothek.iml
 target
 .idea
+**/*.beam
