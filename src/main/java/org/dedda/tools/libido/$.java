@@ -1,8 +1,11 @@
 package org.dedda.tools.libido;
 
+import com.ericsson.otp.erlang.*;
+
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
@@ -278,8 +281,6 @@ public final class $ {
         }
         return $zahl;
     }
-
-
 
     private $() {
     }
