@@ -3,9 +3,12 @@
 
 -export([logger/1, logger/2]).
 
-logger([Dringlichkeit, Nachricht]) ->
-  logger(Dringlichkeit, Nachricht);
-logger(Eintrag) ->
+logger([Listenkopf|Listenrest]) ->
+  logger(Listenkopf),
+  logger(Listenrest)
+;
+logger([]) -> ok;
+logger(Eintrag) when is_record(Eintrag, eintrag) ->
   {Stunde, Minute, Sekunde} = time(),
   {Jahr, Monat, Tag} = date(),
   Zeit = integer_to_list(Stunde) ++ ":" ++ integer_to_list(Minute) ++ "Uhr und " ++ integer_to_list(Sekunde) ++ " Sekunden",
@@ -16,7 +19,7 @@ logger(Eintrag) ->
   write("Nachrichten.log", Inhalt)
 .
 
-logger(Dringlichkeit, Nachricht) ->
+logger(Dringlichkeit, Nachricht) when is_integer(Dringlichkeit) ->
   Eintrag = #logeintrag{dringlichkeit = Dringlichkeit, nachricht = Nachricht},
   logger(Eintrag)
 .
@@ -24,4 +27,4 @@ logger(Dringlichkeit, Nachricht) ->
 write(Datei, Inhalt) ->
   file:write_file(Datei, Inhalt ++ "\r", [append]),
   io:fwrite(Inhalt ++ "\n")
-  .
+.
