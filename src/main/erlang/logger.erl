@@ -8,7 +8,7 @@ logger([Listenkopf|Listenrest]) ->
   logger(Listenrest)
 ;
 logger([]) -> ok;
-logger(Eintrag) when is_record(Eintrag, eintrag) ->
+logger(Eintrag) when is_record(Eintrag, logeintrag) ->
   {Stunde, Minute, Sekunde} = time(),
   {Jahr, Monat, Tag} = date(),
   Zeit = integer_to_list(Stunde) ++ ":" ++ integer_to_list(Minute) ++ "Uhr und " ++ integer_to_list(Sekunde) ++ " Sekunden",
