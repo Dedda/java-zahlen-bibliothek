@@ -22,5 +22,6 @@ logger(Dringlichkeit, Nachricht) ->
 .
 
 write(Datei, Inhalt) ->
-  file:write_file(Datei, Inhalt ++ "\r", [append])
+  file:write_file(Datei, Inhalt ++ "\r", [append]),
+  io:fwrite(Inhalt ++ "\n")
   .
