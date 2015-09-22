@@ -4,11 +4,15 @@
 %%% @doc
 %%%
 %%% @end
-%%% Created : 21. Sep 2015 1:51 PM
+%%% Created : 22. Sep 2015 11:13
 %%%-------------------------------------------------------------------
--module(libido).
+-module(libido_test).
 -author("dedda").
 
 %% API
--export()
+-export([add_test/0]).
 
+add_test() ->
+  X = libido:add(2, 3),
+  5 = X,
+  ok.
