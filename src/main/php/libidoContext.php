@@ -22,11 +22,21 @@ class libidoContext
     $verfügbarerArbeitsspeicher = $this->bekommeDenVerfügbarenArbeitsspeicher();
     $gesamterEinhandelspeicher = $this->bekommeDenGesamtenEinhandelspeicher();
     $freierEinhandelspeicher = $this->bekommeDenFreienEinhandelspeicher();
-    echo $gesamterArbeitsspeicher;
-    echo $freierArbeitsspeicher;
-    echo $verfügbarerArbeitsspeicher;
-    echo $gesamterEinhandelspeicher;
-    echo $freierEinhandelspeicher;
+    $megahertze = $this->bekommeDieMegaHertze();
+    $kerne = $this->bekommeDieKerne();
+    $zentralerProzessionsEinheitsNamen = $this->bekommeDenZentralenProzessionsEinheitsNamen();
+    $flaggen = $this->bekommeDieFlaggen();
+    $käfigGröße = $this->bekommeDieKäfigGröße();
+    echo $gesamterArbeitsspeicher.PHP_EOL;
+    echo $freierArbeitsspeicher.PHP_EOL;
+    echo $verfügbarerArbeitsspeicher.PHP_EOL;
+    echo $gesamterEinhandelspeicher.PHP_EOL;
+    echo $freierEinhandelspeicher.PHP_EOL;
+    echo $megahertze.PHP_EOL;
+    echo $kerne.PHP_EOL;
+    echo $zentralerProzessionsEinheitsNamen.PHP_EOL;
+    echo $flaggen.PHP_EOL;
+    echo $käfigGröße.PHP_EOL;
   }
 
   private function bekommeDenGesamtenArbeitsspeicher()
@@ -36,7 +46,7 @@ class libidoContext
     return $explodiert[1];
   }
 
-    private function bekommeDenFreienArbeitsspeicher()
+  private function bekommeDenFreienArbeitsspeicher()
   {
     $befehlsAusgabe = $this->führeBefehlAus(__DIR__.'/../sh/arbeitsspeicherInformationen.sh frei', true);
     $explodiert = explode(' ', $befehlsAusgabe[0]);
@@ -62,6 +72,48 @@ class libidoContext
     $befehlsAusgabe = $this->führeBefehlAus(__DIR__.'/../sh/arbeitsspeicherInformationen.sh einhandeln frei', true);
     $explodiert = explode(' ', $befehlsAusgabe[0]);
     return $explodiert[1];
+  }
+
+  private function bekommeDieMegaHertze()
+  {
+    $befehlsAusgabe = $this->führeBefehlAus(__DIR__.'/../sh/zentraleProzessionsEinheitInformationen.sh megahertze', true);
+    $explodiert = explode(':', $befehlsAusgabe[0]);
+    return trim($explodiert[1]);
+  }
+
+  private function bekommeDieKerne()
+  {
+    $befehlsAusgabe = $this->führeBefehlAus(__DIR__.'/../sh/zentraleProzessionsEinheitInformationen.sh kerne', true);
+    $kerne = 0;
+    foreach ($befehlsAusgabe as $ausgabeEinheit) {
+      $explodiert = explode(':', $ausgabeEinheit);
+      $explodiert = trim($explodiert[1]);
+      if ($kerne < $explodiert) {
+        $kerne = $explodiert;
+      }
+    }
+    return $kerne+1;
+  }
+
+  private function bekommeDenZentralenProzessionsEinheitsNamen()
+  {
+    $befehlsAusgabe = $this->führeBefehlAus(__DIR__.'/../sh/zentraleProzessionsEinheitInformationen.sh name', true);
+    $explodiert = explode(':', $befehlsAusgabe[0]);
+    return trim($explodiert[1]);
+  }
+
+  private function bekommeDieFlaggen()
+  {
+    $befehlsAusgabe = $this->führeBefehlAus(__DIR__.'/../sh/zentraleProzessionsEinheitInformationen.sh flaggen', true);
+    $explodiert = explode(':', $befehlsAusgabe[0]);
+    return trim($explodiert[1]);
+  }
+
+  private function bekommeDieKäfigGröße()
+  {
+    $befehlsAusgabe = $this->führeBefehlAus(__DIR__.'/../sh/zentraleProzessionsEinheitInformationen.sh käfig', true);
+    $explodiert = explode(':', $befehlsAusgabe[0]);
+    return trim($explodiert[1]);
   }
 
   private function führeBefehlAus($befehl, $überflüssigeLeerzeichenEntfernen = false)
