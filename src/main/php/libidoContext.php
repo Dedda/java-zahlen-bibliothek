@@ -113,6 +113,7 @@ class libidoContext
   {
     $befehlsAusgabe = $this->führeBefehlAus(__DIR__.'/../sh/zentraleProzessionsEinheitInformationen.sh käfig', true);
     $explodiert = explode(':', $befehlsAusgabe[0]);
+    $explodiert = explode(' ', $explodiert[1]);
     return trim($explodiert[1]);
   }
 
