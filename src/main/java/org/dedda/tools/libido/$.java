@@ -179,6 +179,14 @@ public final class $ {
     }
 
     /**
+     * Zufällige Eins oder Null
+     * @return
+     */
+    public static boolean __zeon() {
+        return __eon($("Math.random() >= 0.5;"));
+    }
+
+    /**
      * Zahl
      * @param $objekt
      * @return
@@ -226,6 +234,15 @@ public final class $ {
      */
     public static double __kz(final Object $objekt) {
         return __z($objekt).doubleValue();
+    }
+
+    /**
+     * Zufällige Ganzzahl
+     * @param $maximum
+     * @return
+     */
+    public static long __zgz(final long $maximum) {
+        return __gz($("Math.floor((Math.random() * " + $maximum + ") + 1);"));
     }
 
     /**
