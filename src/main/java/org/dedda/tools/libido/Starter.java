@@ -27,6 +27,7 @@ public class Starter {
         } catch (Exception $e) {
             echo("Das war wohl ein interner Fehler!");
         }
+        __PHP__.__AKTUALISIERE_DIE_SYSTEM_INFORMATIONEN__();
         Class $programmKlasse = null;
         try {
             $programmKlasse = Class.forName("standardPaket.Programm");

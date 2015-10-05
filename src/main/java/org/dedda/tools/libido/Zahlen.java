@@ -17,103 +17,103 @@ import static org.dedda.tools.libido.$.__z;
  */
 public final class Zahlen {
 
-    public static final Number Eins() {
+    public static Number Eins() {
         return __z($(____("1")));
     }
-    public static final Number Ers() {
+    public static Number Ers() {
         return Eins();
     }
-    public static final Number Zwei() {
+    public static Number Zwei() {
         return __z($(____("2")));
     }
-    public static final Number Drei() {
+    public static Number Drei() {
         return __z($(____("3")));
     }
-    public static final Number Drit() {
+    public static Number Drit() {
         return Drei();
     }
-    public static final Number Vier() {
+    public static Number Vier() {
         return __z($(____("4")));
     }
-    public static final Number Fünf() {
+    public static Number Fünf() {
         return __z($(____("5")));
     }
-    public static final Number Sechs() {
+    public static Number Sechs() {
         return __z($(____("6")));
     }
-    public static final Number Sieben() {
+    public static Number Sieben() {
         return __z($(____("7")));
     }
-    public static final Number Sieb() {
+    public static Number Sieb() {
         return Sieben();
     }
-    public static final Number Acht() {
+    public static Number Acht() {
         return __z($(____("8")));
     }
-    public static final Number Neun() {
+    public static Number Neun() {
         return __z($(____("9")));
     }
-    public static final Number Zehn() {
+    public static Number Zehn() {
         return __z($(____("10")));
     }
-    public static final Number Elf() {
+    public static Number Elf() {
         return __z($(____("11")));
     }
-    public static final Number Zwölf() {
+    public static Number Zwölf() {
         return __z($(____("12")));
     }
-    public static final Number Dreizehn() {
+    public static Number Dreizehn() {
         return __z($(____("13")));
     }
-    public static final Number Vierzehn() {
+    public static Number Vierzehn() {
         return __z($(____("14")));
     }
-    public static final Number Fünfzehn() {
+    public static Number Fünfzehn() {
         return __z($(____("15")));
     }
-    public static final Number Sechzehn() {
+    public static Number Sechzehn() {
         return __z($(____("16")));
     }
-    public static final Number Siebzehn() {
+    public static Number Siebzehn() {
         return __z($(____("17")));
     }
-    public static final Number Achtzehn() {
+    public static Number Achtzehn() {
         return __z($(____("18")));
     }
-    public static final Number Neunzehn() {
+    public static Number Neunzehn() {
         return __z($(____("19")));
     }
-    public static final Number Zwanzig() {
+    public static Number Zwanzig() {
         return __z($(____("20")));
     }
-    public static final Number Einundzwanzig() {
+    public static Number Einundzwanzig() {
         return __z($(____("21")));
     }
-    public static final Number Zweiungzwanzig() {
+    public static Number Zweiungzwanzig() {
         return __z($(____("22")));
     }
-    public static final Number Dreiundzwanzig() {
+    public static Number Dreiundzwanzig() {
         return __z($(____("23")));
     }
-    public static final Number Vierundzwanzig() {
+    public static Number Vierundzwanzig() {
         return __z($(____("24")));
     }
-    public static final Number Fünfundzwanzig() {
+    public static Number Fünfundzwanzig() {
         return __z($(____("25")));
     }
-    public static final Number Sechsundzwanzig() {
+    public static Number Sechsundzwanzig() {
         return __z($(____("26")));
     }
-    public static final Number Siebenundzwanzig() {
+    public static Number Siebenundzwanzig() {
         return __z($(____("27")));
     }
-    public static final Number Achtundzwanzig() {
+    public static Number Achtundzwanzig() {
         return __z($(____("28")));
     }
-    public static final Number Neunundzwanzig() {
+    public static Number Neunundzwanzig() {
         return __z($(____("29")));
     }
-    public static final Number Dreißig() {
+    public static Number Dreißig() {
         return __z($(____("30")));
     }
 

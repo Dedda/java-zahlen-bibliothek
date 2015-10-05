@@ -1,5 +1,6 @@
 package standardPaket;
 
+import org.dedda.tools.libido.BombenKehrmaschine;
 import org.dedda.tools.libido.Fabrik;
 import org.dedda.tools.libido.FabrikErzeuger;
 import org.dedda.tools.libido.QuellTextÜbersetzer;
@@ -41,6 +42,7 @@ public class Programm {
         String $anweisung = "$pimmel + $penis ;";
         String $aufgelöst = __($objekt, $anweisung);
         echo($aufgelöst);
+        new BombenKehrmaschine();
     }
 
 }

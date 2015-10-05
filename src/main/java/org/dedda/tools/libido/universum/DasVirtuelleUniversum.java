@@ -11,8 +11,14 @@ import static org.dedda.tools.libido.$._;
  */
 public final class DasVirtuelleUniversum {
 
-    protected DasVirtuelleUniversum(ArrayList<DasVirtuelleObjekt> $objekte) {
+    private DasVirtuelleUniversum $dieses = this;
 
+    protected DasVirtuelleUniversum(ArrayList<DasVirtuelleObjekt> $objekte) {
+        _($dieses, "#objekte", $objekte);
+    }
+
+    public ArrayList<DasVirtuelleObjekt> bekommeDieVirtuellenObjekte() {
+        return (ArrayList<DasVirtuelleObjekt>) _($dieses, "#objekte");
     }
 
 }

@@ -41,4 +41,13 @@ public class Objekt {
         }
     }
 
+    @Override
+    public boolean equals(final Object $objekt) {
+        if (!($objekt instanceof Objekt)) {
+            return false;
+        }
+        Objekt $umgewandelt = (Objekt) $objekt;
+        return $umgewandelt.$uuid.equals($uuid) && $umgewandelt.$id == $id;
+    }
+
 }
