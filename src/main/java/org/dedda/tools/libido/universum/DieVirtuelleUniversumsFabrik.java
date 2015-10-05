@@ -44,7 +44,8 @@ public final class DieVirtuelleUniversumsFabrik {
         ArrayList<DasVirtuelleObjekt> $objekte = (ArrayList<DasVirtuelleObjekt>) _($diese, "#objekte");
         $objekte.add($objekt);
         _($diese, "#objekte", $objekte);
-        return $diese.und();
+        _($diese, "#kannMit", false);
+        return $diese;
     }
 
     public DasVirtuelleUniversum bitte() {
