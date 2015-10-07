@@ -64,25 +64,6 @@
                     </descriptorRefs>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>com.atlassian.maven.plugins</groupId>
-                <artifactId>maven-clover2-plugin</artifactId>
-                <configuration>
-                    <includes>
-                        <include>**/dedda/**/*.java</include>
-                    </includes>
-                    <generateXml>true</generateXml>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>check</goal>
-                            <goal>instrument</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
 </project>
