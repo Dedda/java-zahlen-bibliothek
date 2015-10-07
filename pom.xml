@@ -71,7 +71,6 @@
                     <includes>
                         <include>**/dedda/**/*.java</include>
                     </includes>
-                    <targetPercentage>50%</targetPercentage>
                     <generateXml>true</generateXml>
                 </configuration>
                 <executions>
