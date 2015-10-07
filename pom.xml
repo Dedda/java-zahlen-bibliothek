@@ -76,7 +76,7 @@
                 </configuration>
                 <executions>
                     <execution>
-                        <phase>verify</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>check</goal>
                             <goal>instrument</goal>
