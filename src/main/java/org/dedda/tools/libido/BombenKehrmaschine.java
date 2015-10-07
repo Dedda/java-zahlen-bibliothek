@@ -28,12 +28,12 @@ public final class BombenKehrmaschine extends JFrame {
         if (__gz(_(BombenKehrmaschine.class, "#höhe")) > 0) {
             _($diese, "#höhe", __gz(_(BombenKehrmaschine.class, "#höhe")));
         } else {
-            _($diese, "#höhe", 10);
+            _($diese, "#höhe", 3);
         }
         if (__gz(_(BombenKehrmaschine.class, "#breite")) > 0) {
             _($diese, "#breite", __gz(_(BombenKehrmaschine.class, "#breite")));
         } else {
-            _($diese, "#breite", 20);
+            _($diese, "#breite", 5);
         }
         setVisible(true);
         _($diese, "#fensterHöhe", Rechne(_($diese, "#höhe")).mal(_(BombenKehrmaschine.class, "#knopfGröße")).plus(getInsets().top).plus(getInsets().bottom).istGleich());
@@ -62,6 +62,10 @@ public final class BombenKehrmaschine extends JFrame {
         }
     }
 
+    private boolean alleBombenGefunden() {
+        return (__gz(_($diese, "#bombenGesamt")) == __gz(_($diese, "#bombenAufgedeckt")));
+    }
+
     private class SpielfeldKnopf extends JButton {
 
         private SpielfeldKnopf $dieser = this;
@@ -76,6 +80,14 @@ public final class BombenKehrmaschine extends JFrame {
             $dieser.addActionListener($ae -> {
                 if (__eon(((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(_($dieser, "#x")), (int) __gz(_($dieser, "#y"))))) {
                     $dieser.setText("X");
+                    _($diese, "#bombenAufgedeckt", __gz(Rechne(_($diese, "#bombenAufgedeckt0")).plus(Eins()).istGleich()));
+                    if ($diese.alleBombenGefunden()) {
+                        System.out.println("Fertig!");
+                        JOptionPane.showMessageDialog($diese, "Du hast das Spiel gewonnen!");
+                        $diese.erstelleDasVirtuelleSpielfeld();
+                        $diese.erstelleDieKnöpfe();
+                        $diese.repaint();
+                    }
                 } else {
                     _($dieser, "#zahl", 0);
                     if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(Rechne(_($dieser, "#x")).minus(Eins()).istGleich()), (int) __gz(Rechne(_($dieser, "#y")).minus(Eins()).istGleich()))) {
@@ -105,7 +117,6 @@ public final class BombenKehrmaschine extends JFrame {
                     $dieser.setText(__t(__gz(_($dieser, "#zahl"))));
                 }
                 Arrays.stream($dieser.getActionListeners()).forEach($al -> $dieser.removeActionListener($al));
-//                System.out.println("Bomben: " + __t(__gz(_($dieser, "#zahl"))));
             });
         }
 
@@ -116,6 +127,8 @@ public final class BombenKehrmaschine extends JFrame {
         private DasVirtuelleSpielfeld $dieses = this;
 
         private DasVirtuelleSpielfeld(final int $höhe, final int $breite) {
+            _($diese, "#bombenGesamt", 0);
+            _($diese, "#bombenAufgedeckt", 0);
             _($dieses, "#höhe", $höhe);
             _($dieses, "#breite", $breite);
             _($dieses, "#reihen", new ArrayList<ArrayList<Boolean>>());
@@ -125,6 +138,9 @@ public final class BombenKehrmaschine extends JFrame {
                 ((ArrayList<ArrayList<Boolean>>) _($dieses, "#reihen")).add(new ArrayList<>());
                 while (__gz(_($dieses, "#yZähler")) < __gz(_($dieses, "#höhe"))) {
                     ((ArrayList<ArrayList<Boolean>>) _($dieses, "#reihen")).get((int) __gz(_($dieses, "#xZähler"))).add(__zeon());
+                    if (istEineBombe((int) __gz(_($dieses, "#xZähler")), (int) __gz(_($dieses, "#yZähler")))) {
+                        _($diese, "#bombenGesamt", __gz(Rechne(_($diese, "#bombenGesamt")).plus(Eins()).istGleich()));
+                    }
                     _($dieses, "#yZähler", Rechne(_($dieses, "#yZähler")).plus(Eins()).istGleich());
                 }
                 _($dieses, "#xZähler", Rechne(_($dieses, "#xZähler")).plus(Eins()).istGleich());
