@@ -5,11 +5,9 @@ import javax.swing.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 
-import static org.dedda.tools.libido.$._;
-import static org.dedda.tools.libido.$.__eon;
-import static org.dedda.tools.libido.$.__gz;
-import static org.dedda.tools.libido.$.__zeon;
+import static org.dedda.tools.libido.$.*;
 import static org.dedda.tools.libido.Rechenoperationen.Rechne;
 import static org.dedda.tools.libido.Zahlen.Eins;
 
@@ -25,7 +23,7 @@ public final class BombenKehrmaschine extends JFrame {
     public BombenKehrmaschine() {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         if (!(__gz(_(BombenKehrmaschine.class, "knopfGröße")) > 0)) {
-            _(BombenKehrmaschine.class, "#knopfGröße", 20);
+            _(BombenKehrmaschine.class, "#knopfGröße", 50);
         }
         if (__gz(_(BombenKehrmaschine.class, "#höhe")) > 0) {
             _($diese, "#höhe", __gz(_(BombenKehrmaschine.class, "#höhe")));
@@ -41,13 +39,13 @@ public final class BombenKehrmaschine extends JFrame {
         _($diese, "#fensterHöhe", Rechne(_($diese, "#höhe")).mal(_(BombenKehrmaschine.class, "#knopfGröße")).plus(getInsets().top).plus(getInsets().bottom).istGleich());
         _($diese, "#fensterBreite", Rechne(_($diese, "#breite")).mal(_(BombenKehrmaschine.class, "#knopfGröße")).plus(getInsets().left).plus(getInsets().right).istGleich());
         setSize((int) __gz(_($diese, "#fensterBreite")), (int) __gz(_($diese, "#fensterHöhe")));
+        $diese.getContentPane().setLayout(null);
         $diese.erstelleDasVirtuelleSpielfeld();
         $diese.erstelleDieKnöpfe();
     }
 
     private void erstelleDasVirtuelleSpielfeld() {
         _($diese, "#spielfeld", new DasVirtuelleSpielfeld((int) __gz(_($diese, "#höhe")), (int) __gz(_($diese, "#breite"))));
-
     }
 
     private void erstelleDieKnöpfe() {
@@ -77,8 +75,37 @@ public final class BombenKehrmaschine extends JFrame {
             $dieser.setLocation((int) __gz(_($dieser, "#xPunkt")), (int) __gz(_($dieser, "#yPunkt")));
             $dieser.addActionListener($ae -> {
                 if (__eon(((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(_($dieser, "#x")), (int) __gz(_($dieser, "#y"))))) {
-                    System.exit(1);
+                    $dieser.setText("X");
+                } else {
+                    _($dieser, "#zahl", 0);
+                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(Rechne(_($dieser, "#x")).minus(Eins()).istGleich()), (int) __gz(Rechne(_($dieser, "#y")).minus(Eins()).istGleich()))) {
+                        _($dieser, "#zahl", Rechne(_($dieser, "#zahl")).plus(Eins()).istGleich());
+                    }
+                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) _($dieser, "#x"), (int) __gz(Rechne(_($dieser, "#y")).minus(Eins()).istGleich()))) {
+                        _($dieser, "#zahl", Rechne(_($dieser, "#zahl")).plus(Eins()).istGleich());
+                    }
+                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(Rechne(_($dieser, "#x")).plus(Eins()).istGleich()), (int) __gz(Rechne(_($dieser, "#y")).minus(Eins()).istGleich()))) {
+                        _($dieser, "#zahl", Rechne(_($dieser, "#zahl")).plus(Eins()).istGleich());
+                    }
+                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(Rechne(_($dieser, "#x")).minus(Eins()).istGleich()), (int) _($dieser, "#y"))) {
+                        _($dieser, "#zahl", Rechne(_($dieser, "#zahl")).plus(Eins()).istGleich());
+                    }
+                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(Rechne(_($dieser, "#x")).plus(Eins()).istGleich()), (int) _($dieser, "#y"))) {
+                        _($dieser, "#zahl", Rechne(_($dieser, "#zahl")).plus(Eins()).istGleich());
+                    }
+                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(Rechne(_($dieser, "#x")).minus(Eins()).istGleich()), (int) __gz(Rechne(_($dieser, "#y")).plus(Eins()).istGleich()))) {
+                        _($dieser, "#zahl", Rechne(_($dieser, "#zahl")).plus(Eins()).istGleich());
+                    }
+                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) _($dieser, "#x"), (int) __gz(Rechne(_($dieser, "#y")).plus(Eins()).istGleich()))) {
+                        _($dieser, "#zahl", Rechne(_($dieser, "#zahl")).plus(Eins()).istGleich());
+                    }
+                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(Rechne(_($dieser, "#x")).plus(Eins()).istGleich()), (int) __gz(Rechne(_($dieser, "#y")).plus(Eins()).istGleich()))) {
+                        _($dieser, "#zahl", Rechne(_($dieser, "#zahl")).plus(Eins()).istGleich());
+                    }
+                    $dieser.setText(__t(__gz(_($dieser, "#zahl"))));
                 }
+                Arrays.stream($dieser.getActionListeners()).forEach($al -> $dieser.removeActionListener($al));
+//                System.out.println("Bomben: " + __t(__gz(_($dieser, "#zahl"))));
             });
         }
 
@@ -105,6 +132,12 @@ public final class BombenKehrmaschine extends JFrame {
         }
 
         private boolean istEineBombe(final int $x, final int $y) {
+            if ($x < 0 || $y < 0) {
+                return false;
+            }
+            if ($x >= __gz(_($dieses, "#breite")) || $y >= __gz(_($dieses, "#höhe"))) {
+                return false;
+            }
             return ((ArrayList<ArrayList<Boolean>>) _($dieses, "#reihen")).get($x).get($y);
         }
 
