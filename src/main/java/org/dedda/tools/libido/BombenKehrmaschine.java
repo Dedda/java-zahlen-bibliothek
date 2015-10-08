@@ -28,17 +28,18 @@ public final class BombenKehrmaschine extends JFrame {
         if (__gz(_(BombenKehrmaschine.class, "#höhe")) > 0) {
             _($diese, "#höhe", __gz(_(BombenKehrmaschine.class, "#höhe")));
         } else {
-            _($diese, "#höhe", 3);
+            _($diese, "#höhe", 10);
         }
         if (__gz(_(BombenKehrmaschine.class, "#breite")) > 0) {
             _($diese, "#breite", __gz(_(BombenKehrmaschine.class, "#breite")));
         } else {
-            _($diese, "#breite", 5);
+            _($diese, "#breite", 20);
         }
         setVisible(true);
         _($diese, "#fensterHöhe", Rechne(_($diese, "#höhe")).mal(_(BombenKehrmaschine.class, "#knopfGröße")).plus(getInsets().top).plus(getInsets().bottom).istGleich());
         _($diese, "#fensterBreite", Rechne(_($diese, "#breite")).mal(_(BombenKehrmaschine.class, "#knopfGröße")).plus(getInsets().left).plus(getInsets().right).istGleich());
         setSize((int) __gz(_($diese, "#fensterBreite")), (int) __gz(_($diese, "#fensterHöhe")));
+        setLocationRelativeTo(null);
         $diese.getContentPane().setLayout(null);
         $diese.erstelleDasVirtuelleSpielfeld();
         $diese.erstelleDieKnöpfe();
@@ -80,13 +81,12 @@ public final class BombenKehrmaschine extends JFrame {
             $dieser.addActionListener($ae -> {
                 if (__eon(((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(_($dieser, "#x")), (int) __gz(_($dieser, "#y"))))) {
                     $dieser.setText("X");
-                    _($diese, "#bombenAufgedeckt", __gz(Rechne(_($diese, "#bombenAufgedeckt0")).plus(Eins()).istGleich()));
+                    _($diese, "#bombenAufgedeckt", (int) __gz(Rechne(_($diese, "#bombenAufgedeckt")).plus(Eins()).istGleich()));
                     if ($diese.alleBombenGefunden()) {
                         System.out.println("Fertig!");
-                        JOptionPane.showMessageDialog($diese, "Du hast das Spiel gewonnen!");
-                        $diese.erstelleDasVirtuelleSpielfeld();
-                        $diese.erstelleDieKnöpfe();
-                        $diese.repaint();
+                        JOptionPane.showMessageDialog(null, "Du hast das Spiel gewonnen!");
+                        $diese.dispose();
+                        new BombenKehrmaschine();
                     }
                 } else {
                     _($dieser, "#zahl", 0);
