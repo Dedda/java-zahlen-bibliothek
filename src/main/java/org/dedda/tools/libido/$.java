@@ -105,6 +105,10 @@ public final class $ {
         $variablen.get($aufrufer).put($schlüssel, $wert);
     }
 
+    public static void _$(final Object $aufrufer, final Object $schlüssel, final $$ $$$) {
+        _($aufrufer, $schlüssel, $$$.$$__(_($aufrufer, $schlüssel)));
+    }
+
     /**
      * Variablennamen in einem Text ersetzen.
      *
@@ -312,6 +316,10 @@ public final class $ {
     }
 
     private $() {
+    }
+
+    public interface $$ {
+        Object $$__(Object $objekt);
     }
 
 }
