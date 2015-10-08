@@ -136,7 +136,7 @@ public final class $ {
                 continue;
             }
             Class $klasse = $aufrufer.getClass();
-            Field $felder[] = $klasse.getFields();
+            Field[] $felder = $klasse.getFields();
             for (Field $feld : $felder) {
                 if ($feld.getName().equals('$' + $wort.substring(1))) {
                     $wortExistiertAlsVariable = true;
@@ -257,7 +257,9 @@ public final class $ {
         try {
             String $text = (String) $objekt;
             return $text;
-        } catch (Exception $e) {}
+        } catch (Exception $e) {
+
+        }
         return $objekt.toString();
     }
 
@@ -281,21 +283,29 @@ public final class $ {
                 try {
                     Object $wert = $feld.get($objekt);
                     $zahl = __kz(Rechne($zahl).plus(__kz($wert)).istGleich());
-                } catch (Exception $e) {}
+                } catch (Exception $e) {
+
+                }
             } else if (String.class.isAssignableFrom($feld.getType())) {
                 try {
                     String $text = __t($feld.get($objekt));
                     $zahl = __kz(Rechne($zahl).plus(__kz($text)).istGleich());
-                } catch (IllegalAccessException $e) {}
+                } catch (IllegalAccessException $e) {
+
+                }
             } else if (Boolean.class.isAssignableFrom($feld.getType())) {
                 try {
                     Boolean $wert = (Boolean) $feld.get($objekt);
                     $zahl = __kz(Rechne($zahl).plus(__gz($wert)).istGleich());
-                } catch (IllegalAccessException $e) {}
+                } catch (IllegalAccessException $e) {
+
+                }
             } else {
                 try {
                     $zahl = __kz(Rechne($zahl).plus(__kz($feld.get($objekt))).istGleich());
-                } catch (IllegalAccessException e) {}
+                } catch (IllegalAccessException e) {
+
+                }
             }
         }
         return $zahl;

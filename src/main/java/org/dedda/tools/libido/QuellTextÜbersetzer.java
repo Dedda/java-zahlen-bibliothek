@@ -101,11 +101,11 @@ public class QuellTextÜbersetzer {
     public String übersetzeWort(final String $deutsch, final String $wort, final String $übersetzt) {
         String $englisch = $deutsch;
         int $position = $englisch.indexOf($wort);
-        while($position >= 0) {
+        while ($position >= 0) {
             if (mussErsetztWerden($englisch, $position)) {
                 $englisch = $englisch.substring(0, $position) + $übersetzt + $englisch.substring($position + $wort.length());
             }
-            $position = $englisch.indexOf($wort, $position+1);
+            $position = $englisch.indexOf($wort, $position + 1);
         }
         return $englisch;
     }
@@ -128,30 +128,30 @@ public class QuellTextÜbersetzer {
                 continue;
             }
             if (!$inEinemString) {
-                if ($heuhaufen.charAt(i) == '/' && $heuhaufen.charAt(i+1) == '*') {
+                if ($heuhaufen.charAt(i) == '/' && $heuhaufen.charAt(i + 1) == '*') {
                     $inEinemBlockKommentar = true;
-                } else if ($heuhaufen.charAt(i) == '*' && $heuhaufen.charAt(i+1) == '/') {
+                } else if ($heuhaufen.charAt(i) == '*' && $heuhaufen.charAt(i + 1) == '/') {
                     $inEinemBlockKommentar = false;
                 }
             }
             if (!$inEinemString && !$inEinemBlockKommentar && !$inEinemZeilenKommentar) {
                 if (!$inEinemCharakter) {
-                    if ($heuhaufen.charAt(i) != '\\' && $heuhaufen.charAt(i+1) == '\'') {
+                    if ($heuhaufen.charAt(i) != '\\' && $heuhaufen.charAt(i + 1) == '\'') {
                         $inEinemCharakter = !$inEinemCharakter;
                     }
                 } else {
-                    if ($heuhaufen.charAt(i-1) != '\\' && $heuhaufen.charAt(i) == '\'') {
+                    if ($heuhaufen.charAt(i - 1) != '\\' && $heuhaufen.charAt(i) == '\'') {
                         $inEinemCharakter = !$inEinemCharakter;
                     }
                 }
             }
             if (!$inEinemCharakter && !$inEinemBlockKommentar && !$inEinemZeilenKommentar) {
                 if (!$inEinemString) {
-                    if ($heuhaufen.charAt(i) != '\\' && $heuhaufen.charAt(i+1) == '"') {
+                    if ($heuhaufen.charAt(i) != '\\' && $heuhaufen.charAt(i + 1) == '"') {
                         $inEinemString = !$inEinemString;
                     }
                 } else {
-                    if ($heuhaufen.charAt(i) != '\\' && $heuhaufen.charAt(i+1) == '"') {
+                    if ($heuhaufen.charAt(i) != '\\' && $heuhaufen.charAt(i + 1) == '"') {
                         $inEinemString = !$inEinemString;
                     }
                 }

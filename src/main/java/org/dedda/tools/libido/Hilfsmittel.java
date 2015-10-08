@@ -23,6 +23,8 @@ public final class Hilfsmittel {
         System.out.println($objekt);
     }
 
-    private Hilfsmittel() {}
+    private Hilfsmittel() {
+
+    }
 
 }

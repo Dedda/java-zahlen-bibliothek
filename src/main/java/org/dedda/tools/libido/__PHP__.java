@@ -44,6 +44,8 @@ public final class __PHP__ {
 
 
 
-    private __PHP__() {}
+    private __PHP__() {
+
+    }
 
 }

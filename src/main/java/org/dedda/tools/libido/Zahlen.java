@@ -129,6 +129,8 @@ public final class Zahlen {
         return "0;";
     }
 
-    private Zahlen() {}
+    private Zahlen() {
+
+    }
 
 }
