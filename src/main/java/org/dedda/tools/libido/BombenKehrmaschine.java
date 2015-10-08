@@ -57,9 +57,9 @@ public final class BombenKehrmaschine extends JFrame {
                 $diese.getContentPane().add(new SpielfeldKnopf((int) __gz(_($diese, "#xZähler")), (int) __gz(_($diese, "#yZähler")), (DasVirtuelleSpielfeld) _($diese, "#spielfeld")));
                 $diese.getContentPane().repaint();
                 System.out.println("Button " + _($diese, "#xZähler") + ":" + _($diese, "#yZähler"));
-                _($diese, "#xZähler", Rechne(_($diese, "#xZähler")).plus(Eins()).istGleich());
+                _$($diese, "#xZähler", $z -> Rechne($z).plus(Eins()).istGleich());
             }
-            _($diese, "#yZähler", Rechne(_($diese, "#yZähler")).plus(Eins()).istGleich());
+            _$($diese, "#yZähler", $z -> Rechne($z).plus(Eins()).istGleich());
         }
     }
 
@@ -81,7 +81,8 @@ public final class BombenKehrmaschine extends JFrame {
             $dieser.addActionListener($ae -> {
                 if (__eon(((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(_($dieser, "#x")), (int) __gz(_($dieser, "#y"))))) {
                     $dieser.setText("X");
-                    _($diese, "#bombenAufgedeckt", (int) __gz(Rechne(_($diese, "#bombenAufgedeckt")).plus(Eins()).istGleich()));
+//                    _($diese, "#bombenAufgedeckt", (int) __gz(Rechne(_($diese, "#bombenAufgedeckt")).plus(Eins()).istGleich()));
+                    _$($diese, "#bombenAufgedeckt", $ba -> (int) __gz(Rechne($ba).plus(Eins()).istGleich()));
                     if ($diese.alleBombenGefunden()) {
                         System.out.println("Fertig!");
                         JOptionPane.showMessageDialog(null, "Du hast das Spiel gewonnen!");
@@ -139,11 +140,11 @@ public final class BombenKehrmaschine extends JFrame {
                 while (__gz(_($dieses, "#yZähler")) < __gz(_($dieses, "#höhe"))) {
                     ((ArrayList<ArrayList<Boolean>>) _($dieses, "#reihen")).get((int) __gz(_($dieses, "#xZähler"))).add(__zeon());
                     if (istEineBombe((int) __gz(_($dieses, "#xZähler")), (int) __gz(_($dieses, "#yZähler")))) {
-                        _($diese, "#bombenGesamt", __gz(Rechne(_($diese, "#bombenGesamt")).plus(Eins()).istGleich()));
+                        _$($diese, "#bombenGesamt", $bg -> __gz(Rechne($bg).plus(Eins()).istGleich()));
                     }
-                    _($dieses, "#yZähler", Rechne(_($dieses, "#yZähler")).plus(Eins()).istGleich());
+                    _$($dieses, "#yZähler", $z -> Rechne($z).plus(Eins()).istGleich());
                 }
-                _($dieses, "#xZähler", Rechne(_($dieses, "#xZähler")).plus(Eins()).istGleich());
+                _$($dieses, "#xZähler", $z -> Rechne($z).plus(Eins()).istGleich());
             }
         }
 

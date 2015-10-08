@@ -10,6 +10,8 @@ import java.util.Map;
 
 import static org.dedda.tools.libido.$.$;
 import static org.dedda.tools.libido.$.*;
+import static org.dedda.tools.libido.Rechenoperationen.Rechne;
+import static org.dedda.tools.libido.Zahlen.Eins;
 import static org.junit.Assert.*;
 
 /**
@@ -50,6 +52,14 @@ public class $Test {
         assertNull(_($objekt2, 123));
         assertEquals(321, _($objekt2, 321));
         assertNull(_($objekt1, 321));
+    }
+
+    @Test
+    public void test_$() throws Exception {
+        int $test = 1;
+        _("#test_$", "#test", $test);
+        _$("test_$", "#test", $t -> Rechne($t).plus(Eins()).istGleich());
+        assertEquals(2, (int) __gz(_("#test_$", "#test")));
     }
 
     @Test
