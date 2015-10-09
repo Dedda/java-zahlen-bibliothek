@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
  *
  * @author dedda
  */
-public class $Test {
+public class DerDollarTest {
 
     @Before
     public void setUp() {
