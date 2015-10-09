@@ -58,7 +58,7 @@ public class $Test {
     public void test_$() throws Exception {
         int $test = 1;
         _("#test_$", "#test", $test);
-        _$("test_$", "#test", $t -> Rechne($t).plus(Eins()).istGleich());
+        _$("#test_$", "#test", $t -> Rechne($t).plus(Eins()).istGleich());
         assertEquals(2, (int) __gz(_("#test_$", "#test")));
     }
 
