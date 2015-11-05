@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-erl -logger -detached -sname server@localhost -setcookie keks
+erl -logger -detached -name server@localhost -setcookie keks

@@ -1,5 +1,8 @@
 package org.dedda.tools.libido;
 
+import static org.dedda.tools.libido.$.__t;
+import static org.dedda.tools.libido.EreignisseVerarbeiten.loggen;
+
 /**
  * Created by dedda on 9/9/15.
  *
@@ -21,6 +24,7 @@ public final class Hilfsmittel {
 
     public static void echo(final Object $objekt) {
         System.out.println($objekt);
+        loggen(0, __t($objekt));
     }
 
     private Hilfsmittel() {

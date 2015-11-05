@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.dedda.tools.libido.$.*;
+import static org.dedda.tools.libido.EreignisseVerarbeiten.loggen;
 import static org.dedda.tools.libido.Rechenoperationen.Rechne;
 import static org.dedda.tools.libido.Zahlen.Eins;
 
@@ -56,7 +57,7 @@ public final class BombenKehrmaschine extends JFrame {
             while (__gz(_($diese, "#xZähler")) < __gz(_($diese, "#breite"))) {
                 $diese.getContentPane().add(new SpielfeldKnopf((int) __gz(_($diese, "#xZähler")), (int) __gz(_($diese, "#yZähler")), (DasVirtuelleSpielfeld) _($diese, "#spielfeld")));
                 $diese.getContentPane().repaint();
-                System.out.println("Button " + _($diese, "#xZähler") + ":" + _($diese, "#yZähler"));
+                loggen(0, "Button " + _($diese, "#xZähler") + ":" + _($diese, "#yZähler"));
                 _$($diese, "#xZähler", $z -> Rechne($z).plus(Eins()).istGleich());
             }
             _$($diese, "#yZähler", $z -> Rechne($z).plus(Eins()).istGleich());
@@ -84,7 +85,7 @@ public final class BombenKehrmaschine extends JFrame {
 //                    _($diese, "#bombenAufgedeckt", (int) __gz(Rechne(_($diese, "#bombenAufgedeckt")).plus(Eins()).istGleich()));
                     _$($diese, "#bombenAufgedeckt", $ba -> (int) __gz(Rechne($ba).plus(Eins()).istGleich()));
                     if ($diese.alleBombenGefunden()) {
-                        System.out.println("Fertig!");
+                        loggen(0, "Fertig!");
                         JOptionPane.showMessageDialog(null, "Du hast das Spiel gewonnen!");
                         $diese.dispose();
                         new BombenKehrmaschine();
