@@ -8,3 +8,5 @@ package:
 	./starte-den-erlang-bediener.sh
 	mvn clean package
 	killall -9 beam.smp
+packageSkipTests:
+	mvn clean package -DskipTests=true
