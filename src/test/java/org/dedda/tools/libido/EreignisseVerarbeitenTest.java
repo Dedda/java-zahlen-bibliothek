@@ -13,7 +13,8 @@ import static org.junit.Assert.*;
  */
 public class EreignisseVerarbeitenTest {
 
-    @Ignore("Kann nicht funktionieren, wenn kein erlang auf dem Rechner installiert ist. Der Build würde also fehlschlagen und das will ich nicht.")
+//    @Ignore("Kann nicht funktionieren, wenn kein erlang auf dem Rechner installiert ist. Der Build würde also fehlschlagen und das will ich nicht.")
+    @Test
     public void testLoggen() throws Exception {
         try{
             assertTrue(loggen(15, "Nachricht!"));

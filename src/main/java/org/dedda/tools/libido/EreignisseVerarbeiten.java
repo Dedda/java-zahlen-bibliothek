@@ -13,7 +13,7 @@ public class EreignisseVerarbeiten {
 
     public static boolean loggen(final int $dringlichkeit, final String $nachricht) throws IOException, OtpAuthException, OtpErlangExit, OtpErlangDecodeException {
         OtpSelf $kunde = new OtpSelf("client", "keks");
-        OtpPeer $bediener = new OtpPeer("server@sgoeppentin-desktop");
+        OtpPeer $bediener = new OtpPeer("server@localhost");
         OtpConnection $verbindung = $kunde.connect($bediener);
         $verbindung.sendRPC("logger", "logger", new OtpErlangObject[] {
                 new OtpErlangInt($dringlichkeit),

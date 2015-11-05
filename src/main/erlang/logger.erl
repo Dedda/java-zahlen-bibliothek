@@ -1,7 +1,8 @@
 -module(logger).
+-behaviour(application).
 -include("logger.hrl").
 
--export([logger/1, logger/2]).
+-export([logger/1, logger/2, start/2, stop/1]).
 
 logger([Listenkopf|Listenrest]) ->
   logger(Listenkopf),
@@ -28,3 +29,6 @@ write(Datei, Inhalt) ->
   file:write_file(Datei, Inhalt ++ "\r", [append]),
   io:fwrite(Inhalt ++ "\n")
 .
+
+start(StartType, StartArgs) -> ok.
+stop(State) -> ok.

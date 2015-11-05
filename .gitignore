@@ -14,3 +14,7 @@ java-zahlen-bibliothek.iml
 target
 .idea
 **/*.beam
+**/*.log
+*.iml
+erl_crash.dump
+Nachrichten.log
