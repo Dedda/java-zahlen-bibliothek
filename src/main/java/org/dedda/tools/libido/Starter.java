@@ -56,10 +56,10 @@ public class Starter {
             $startMethode.invoke($instanz);
         } catch (IllegalAccessException $e) {
             $e.printStackTrace();
-//            echo("Deine \'start()\'-Methode konnte nicht aufgerufen werden!");
+            echo("Deine \'start()\'-Methode konnte nicht aufgerufen werden!");
         } catch (InvocationTargetException $e) {
             $e.printStackTrace();
-//            echo("Deine \'start()\'-Methode konnte nicht aufgerufen werden!");
+            echo("Deine \'start()\'-Methode konnte nicht aufgerufen werden!");
         } catch (Exception $e) {
             echo("Du scheinst kein guter Programmierer zu sein. Ich habe einen Fehler festgestellt!");
         }

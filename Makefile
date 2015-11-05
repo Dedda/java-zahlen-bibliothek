@@ -6,7 +6,7 @@ test:
 package:
 	./baue-die-erlang-programme.sh
 	./starte-den-erlang-bediener.sh
-	mvn clean package
+	mvn clean compile assembly:single
 	killall -9 beam.smp
 packageSkipTests:
-	mvn clean package -DskipTests=true
+	mvn clean compile assembly:single -DskipTests=true
