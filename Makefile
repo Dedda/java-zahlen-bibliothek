@@ -1,12 +1,19 @@
+baueErlang:
+	./baue-die-erlang-programme.sh
+starteErlangServer:
+	./starte-den-erlang-bediener.sh
+stoppeAlleErlangs:
+	killall -9 beam.smp
 test:
+	make baueErlang
 	./baue-die-erlang-programme.sh
-	./starte-den-erlang-bediener.sh
+	make starteErlangServer
 	mvn clean test
-	killall -9 beam.smp
+	make stoppeAlleErlangs
 package:
-	./baue-die-erlang-programme.sh
-	./starte-den-erlang-bediener.sh
+	make baueErlang
+	make starteErlangServer
 	mvn clean compile assembly:single
-	killall -9 beam.smp
+	make stoppeAlleErlangs
 packageSkipTests:
 	mvn clean compile assembly:single -DskipTests=true
