@@ -25,3 +25,5 @@ clean:
 	rm DATEN.json
 	rm *.py
 	rm -rf target
+	rm logger.beam
+	rm Nachrichten.log
