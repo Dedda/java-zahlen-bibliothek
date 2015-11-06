@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lib-IDO ==> Prozesseigenschaften</title>
+</head>
+<body>
+    <p>
+        <h3>Speicher:</h3>
+        <ul>
+            <li>Belegt: {{ speicherbelegt }} </li>
+        </ul>
+    </p>
+</body>
+</html>

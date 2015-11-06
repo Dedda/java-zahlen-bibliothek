@@ -1,4 +1,4 @@
-{application, logger,
+{application, libido,
     [
         {modules, [logger]},
         {registered, [logger]}

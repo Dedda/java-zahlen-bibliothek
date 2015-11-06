@@ -1,5 +1,7 @@
 package org.dedda.tools.libido;
 
+import org.dedda.tools.libido.internetseiten.InternetSeitenAnbieter;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -15,6 +17,13 @@ import static org.dedda.tools.libido.Hilfsmittel.echo;
 public class Starter {
 
     public static void main(String[] $args) {
+        InternetSeitenAnbieter.starte();
+        try {
+            Thread.sleep(999999999);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        /*
         try {
             $argv = $args;
             $argc = $args.length;
@@ -63,6 +72,7 @@ public class Starter {
         } catch (Exception $e) {
             echo("Du scheinst kein guter Programmierer zu sein. Ich habe einen Fehler festgestellt!");
         }
+        /**/
     }
 
 }
