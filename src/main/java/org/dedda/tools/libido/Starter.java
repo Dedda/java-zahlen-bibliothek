@@ -18,12 +18,12 @@ public class Starter {
 
     public static void main(String[] $args) {
         InternetSeitenAnbieter.starte();
-        try {
-            Thread.sleep(999999999);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        /*
+//        try {
+//            Thread.sleep(999999999);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
         try {
             $argv = $args;
             $argc = $args.length;

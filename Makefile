@@ -21,9 +21,4 @@ install:
 	make package
 	cp ./src/main/python/*.py ./
 clean:
-	rm AUSGABE.html
-	rm DATEN.json
-	rm *.py
-	rm -rf target
-	rm logger.beam
-	rm Nachrichten.log
+	rm AUSGABE.html Nachrichten.log DATEN.json *.py -rf target logger.beam
