@@ -36,6 +36,7 @@ public final class BombenKehrmaschine extends JFrame {
         } else {
             _($diese, "#breite", 20);
         }
+        setResizable(false);
         setVisible(true);
         _($diese, "#fensterHöhe", Rechne(_($diese, "#höhe")).mal(_(BombenKehrmaschine.class, "#knopfGröße")).plus(getInsets().top).plus(getInsets().bottom).istGleich());
         _($diese, "#fensterBreite", Rechne(_($diese, "#breite")).mal(_(BombenKehrmaschine.class, "#knopfGröße")).plus(getInsets().left).plus(getInsets().right).istGleich());

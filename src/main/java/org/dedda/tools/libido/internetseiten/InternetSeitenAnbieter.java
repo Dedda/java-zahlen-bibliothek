@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 
 import static org.dedda.tools.libido.$._;
+import static org.dedda.tools.libido.$.__t;
 
 /**
  * Created by dedda on 11/6/15.
@@ -19,17 +20,12 @@ import static org.dedda.tools.libido.$._;
  */
 public class InternetSeitenAnbieter implements HttpHandler {
 
-//    private static HttpServer $anbieter;
-//    private static File INTERNETSEITE;
-
     static {
         _(InternetSeitenAnbieter.class, "#INTERNETSEITE", new File("AUSGABE.html"));
     }
 
     public static void starte() {
-//        INTERNETSEITE = new File("AUSGABE.html");
         try {
-//            $anbieter = HttpServer.create(new InetSocketAddress(2468), 0);
             _(InternetSeitenAnbieter.class, "#anbieter", HttpServer.create(new InetSocketAddress(2468), 0));
         } catch (IOException e) {
             e.printStackTrace();
@@ -41,32 +37,32 @@ public class InternetSeitenAnbieter implements HttpHandler {
 
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
+        _(this, "handle#austausch", httpExchange);
         if (((File) _(InternetSeitenAnbieter.class, "#INTERNETSEITE")).exists()) {
             ((File) _(InternetSeitenAnbieter.class, "#INTERNETSEITE")).delete();
         }
-        InternetSeite $behandler = null;
-        String $dateiName = httpExchange.getRequestURI().toString();
-        if ($dateiName.endsWith("stoppe.das.programm")) {
+        _(this, "handle#dateiName", ((HttpExchange) _(this, "handle#austausch")).getRequestURI().toString());
+        if (__t(_(this, "handle#dateiName")).endsWith("stoppe.das.programm")) {
             System.exit(0);
         }
-        if ($dateiName.endsWith("stoppe.die.internetseite")) {
+        if (__t(_(this, "handle#dateiName")).endsWith("stoppe.die.internetseite")) {
             ((HttpServer) _(InternetSeitenAnbieter.class, "#anbieter")).stop(0);
         }
-        if ($dateiName.endsWith("prozess.seite")) {
-            $behandler = new ProzessSeite();
+        if (__t(_(this, "handle#dateiName")).endsWith("prozess.seite")) {
+            _(this, "handle#behandler", new ProzessSeite());
         }
-        $behandler.baueDieSeite(httpExchange);
-        String $inhalt = "";
-        BufferedReader $leser = new BufferedReader(new FileReader(((File) _(InternetSeitenAnbieter.class, "#INTERNETSEITE"))));
+        ((InternetSeite) _(this, "handle#behandler")).baueDieSeite(httpExchange);
+        _(this, "handle#inhalt", "");
+        _(this, "handle#leser", new BufferedReader(new FileReader(((File) _(InternetSeitenAnbieter.class, "#INTERNETSEITE")))));
         String $zeile;
-        while (($zeile = $leser.readLine()) != null) {
-            $inhalt += '\n' + $zeile;
+        while (($zeile = ((BufferedReader) _(this, "handle#leser")).readLine()) != null) {
+            _(this, "handle#inhalt", __t(_(this, "handle#inhalt")) + '\n' + $zeile);
         }
-        $leser.close();
-        httpExchange.getResponseHeaders().set("Content-Type", "text/html");
-        httpExchange.sendResponseHeaders(200, $inhalt.length());
-        httpExchange.getResponseBody().write($inhalt.getBytes());
-        httpExchange.getRequestBody().close();
+        ((BufferedReader) _(this, "handle#leser")).close();
+        ((HttpExchange) _(this, "handle#austausch")).getResponseHeaders().set("Content-Type", "text/html");
+        ((HttpExchange) _(this, "handle#austausch")).sendResponseHeaders(200, __t(_(this, "handle#inhalt")).length());
+        ((HttpExchange) _(this, "handle#austausch")).getResponseBody().write(__t(_(this, "handle#inhalt")).getBytes());
+        ((HttpExchange) _(this, "handle#austausch")).getRequestBody().close();
     }
 
 }
