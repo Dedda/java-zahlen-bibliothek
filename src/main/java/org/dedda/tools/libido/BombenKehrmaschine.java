@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 import static org.dedda.tools.libido.$.*;
 import static org.dedda.tools.libido.EreignisseVerarbeiten.loggen;
-import static org.dedda.tools.libido.Rechenoperationen.Rechne;
+import static org.dedda.tools.libido.Rechenoperationen.RechneSchnell;
 import static org.dedda.tools.libido.Zahlen.Eins;
 
 /**
@@ -38,8 +38,8 @@ public final class BombenKehrmaschine extends JFrame {
         }
         setResizable(false);
         setVisible(true);
-        _($diese, "#fensterHöhe", Rechne(_($diese, "#höhe")).mal(_(BombenKehrmaschine.class, "#knopfGröße")).plus(getInsets().top).plus(getInsets().bottom).istGleich());
-        _($diese, "#fensterBreite", Rechne(_($diese, "#breite")).mal(_(BombenKehrmaschine.class, "#knopfGröße")).plus(getInsets().left).plus(getInsets().right).istGleich());
+        _($diese, "#fensterHöhe", RechneSchnell(_($diese, "#höhe")).mal(_(BombenKehrmaschine.class, "#knopfGröße")).plus(getInsets().top).plus(getInsets().bottom).istGleich());
+        _($diese, "#fensterBreite", RechneSchnell(_($diese, "#breite")).mal(_(BombenKehrmaschine.class, "#knopfGröße")).plus(getInsets().left).plus(getInsets().right).istGleich());
         setSize((int) __gz(_($diese, "#fensterBreite")), (int) __gz(_($diese, "#fensterHöhe")));
         setLocationRelativeTo(null);
         $diese.getContentPane().setLayout(null);
@@ -59,9 +59,9 @@ public final class BombenKehrmaschine extends JFrame {
                 $diese.getContentPane().add(new SpielfeldKnopf((int) __gz(_($diese, "#xZähler")), (int) __gz(_($diese, "#yZähler")), (DasVirtuelleSpielfeld) _($diese, "#spielfeld")));
                 $diese.getContentPane().repaint();
                 loggen(0, "Button " + _($diese, "#xZähler") + ":" + _($diese, "#yZähler"));
-                _$($diese, "#xZähler", $z -> Rechne($z).plus(Eins()).istGleich());
+                _$($diese, "#xZähler", $z -> RechneSchnell($z).plus(Eins()).istGleich());
             }
-            _$($diese, "#yZähler", $z -> Rechne($z).plus(Eins()).istGleich());
+            _$($diese, "#yZähler", $z -> RechneSchnell($z).plus(Eins()).istGleich());
         }
     }
 
@@ -77,14 +77,14 @@ public final class BombenKehrmaschine extends JFrame {
             _($dieser, "#x", $x);
             _($dieser, "#y", $y);
             $dieser.setSize((int) __gz(_(BombenKehrmaschine.class, "#knopfGröße")), (int) __gz(_(BombenKehrmaschine.class, "#knopfGröße")));
-            _($dieser, "#xPunkt", __gz(Rechne(_($dieser, "#x")).mal(_(BombenKehrmaschine.class, "#knopfGröße")).istGleich()));
-            _($dieser, "#yPunkt", __gz(Rechne(_($dieser, "#y")).mal(_(BombenKehrmaschine.class, "#knopfGröße")).istGleich()));
+            _($dieser, "#xPunkt", __gz(RechneSchnell(_($dieser, "#x")).mal(_(BombenKehrmaschine.class, "#knopfGröße")).istGleich()));
+            _($dieser, "#yPunkt", __gz(RechneSchnell(_($dieser, "#y")).mal(_(BombenKehrmaschine.class, "#knopfGröße")).istGleich()));
             $dieser.setLocation((int) __gz(_($dieser, "#xPunkt")), (int) __gz(_($dieser, "#yPunkt")));
             $dieser.addActionListener($ae -> {
                 if (__eon(((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(_($dieser, "#x")), (int) __gz(_($dieser, "#y"))))) {
                     $dieser.setText("X");
-//                    _($diese, "#bombenAufgedeckt", (int) __gz(Rechne(_($diese, "#bombenAufgedeckt")).plus(Eins()).istGleich()));
-                    _$($diese, "#bombenAufgedeckt", $ba -> (int) __gz(Rechne($ba).plus(Eins()).istGleich()));
+//                    _($diese, "#bombenAufgedeckt", (int) __gz(RechneSchnell(_($diese, "#bombenAufgedeckt")).plus(Eins()).istGleich()));
+                    _$($diese, "#bombenAufgedeckt", $ba -> (int) __gz(RechneSchnell($ba).plus(Eins()).istGleich()));
                     if ($diese.alleBombenGefunden()) {
                         loggen(0, "Fertig!");
                         JOptionPane.showMessageDialog(null, "Du hast das Spiel gewonnen!");
@@ -93,29 +93,29 @@ public final class BombenKehrmaschine extends JFrame {
                     }
                 } else {
                     _($dieser, "#zahl", 0);
-                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(Rechne(_($dieser, "#x")).minus(Eins()).istGleich()), (int) __gz(Rechne(_($dieser, "#y")).minus(Eins()).istGleich()))) {
-                        _($dieser, "#zahl", Rechne(_($dieser, "#zahl")).plus(Eins()).istGleich());
+                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(RechneSchnell(_($dieser, "#x")).minus(Eins()).istGleich()), (int) __gz(RechneSchnell(_($dieser, "#y")).minus(Eins()).istGleich()))) {
+                        _($dieser, "#zahl", RechneSchnell(_($dieser, "#zahl")).plus(Eins()).istGleich());
                     }
-                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) _($dieser, "#x"), (int) __gz(Rechne(_($dieser, "#y")).minus(Eins()).istGleich()))) {
-                        _($dieser, "#zahl", Rechne(_($dieser, "#zahl")).plus(Eins()).istGleich());
+                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) _($dieser, "#x"), (int) __gz(RechneSchnell(_($dieser, "#y")).minus(Eins()).istGleich()))) {
+                        _($dieser, "#zahl", RechneSchnell(_($dieser, "#zahl")).plus(Eins()).istGleich());
                     }
-                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(Rechne(_($dieser, "#x")).plus(Eins()).istGleich()), (int) __gz(Rechne(_($dieser, "#y")).minus(Eins()).istGleich()))) {
-                        _($dieser, "#zahl", Rechne(_($dieser, "#zahl")).plus(Eins()).istGleich());
+                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(RechneSchnell(_($dieser, "#x")).plus(Eins()).istGleich()), (int) __gz(RechneSchnell(_($dieser, "#y")).minus(Eins()).istGleich()))) {
+                        _($dieser, "#zahl", RechneSchnell(_($dieser, "#zahl")).plus(Eins()).istGleich());
                     }
-                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(Rechne(_($dieser, "#x")).minus(Eins()).istGleich()), (int) _($dieser, "#y"))) {
-                        _($dieser, "#zahl", Rechne(_($dieser, "#zahl")).plus(Eins()).istGleich());
+                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(RechneSchnell(_($dieser, "#x")).minus(Eins()).istGleich()), (int) _($dieser, "#y"))) {
+                        _($dieser, "#zahl", RechneSchnell(_($dieser, "#zahl")).plus(Eins()).istGleich());
                     }
-                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(Rechne(_($dieser, "#x")).plus(Eins()).istGleich()), (int) _($dieser, "#y"))) {
-                        _($dieser, "#zahl", Rechne(_($dieser, "#zahl")).plus(Eins()).istGleich());
+                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(RechneSchnell(_($dieser, "#x")).plus(Eins()).istGleich()), (int) _($dieser, "#y"))) {
+                        _($dieser, "#zahl", RechneSchnell(_($dieser, "#zahl")).plus(Eins()).istGleich());
                     }
-                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(Rechne(_($dieser, "#x")).minus(Eins()).istGleich()), (int) __gz(Rechne(_($dieser, "#y")).plus(Eins()).istGleich()))) {
-                        _($dieser, "#zahl", Rechne(_($dieser, "#zahl")).plus(Eins()).istGleich());
+                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(RechneSchnell(_($dieser, "#x")).minus(Eins()).istGleich()), (int) __gz(RechneSchnell(_($dieser, "#y")).plus(Eins()).istGleich()))) {
+                        _($dieser, "#zahl", RechneSchnell(_($dieser, "#zahl")).plus(Eins()).istGleich());
                     }
-                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) _($dieser, "#x"), (int) __gz(Rechne(_($dieser, "#y")).plus(Eins()).istGleich()))) {
-                        _($dieser, "#zahl", Rechne(_($dieser, "#zahl")).plus(Eins()).istGleich());
+                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) _($dieser, "#x"), (int) __gz(RechneSchnell(_($dieser, "#y")).plus(Eins()).istGleich()))) {
+                        _($dieser, "#zahl", RechneSchnell(_($dieser, "#zahl")).plus(Eins()).istGleich());
                     }
-                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(Rechne(_($dieser, "#x")).plus(Eins()).istGleich()), (int) __gz(Rechne(_($dieser, "#y")).plus(Eins()).istGleich()))) {
-                        _($dieser, "#zahl", Rechne(_($dieser, "#zahl")).plus(Eins()).istGleich());
+                    if (((DasVirtuelleSpielfeld) _($diese, "#spielfeld")).istEineBombe((int) __gz(RechneSchnell(_($dieser, "#x")).plus(Eins()).istGleich()), (int) __gz(RechneSchnell(_($dieser, "#y")).plus(Eins()).istGleich()))) {
+                        _($dieser, "#zahl", RechneSchnell(_($dieser, "#zahl")).plus(Eins()).istGleich());
                     }
                     $dieser.setText(__t(__gz(_($dieser, "#zahl"))));
                 }
@@ -142,11 +142,11 @@ public final class BombenKehrmaschine extends JFrame {
                 while (__gz(_($dieses, "#yZähler")) < __gz(_($dieses, "#höhe"))) {
                     ((ArrayList<ArrayList<Boolean>>) _($dieses, "#reihen")).get((int) __gz(_($dieses, "#xZähler"))).add(__zeon());
                     if (istEineBombe((int) __gz(_($dieses, "#xZähler")), (int) __gz(_($dieses, "#yZähler")))) {
-                        _$($diese, "#bombenGesamt", $bg -> __gz(Rechne($bg).plus(Eins()).istGleich()));
+                        _$($diese, "#bombenGesamt", $bg -> __gz(RechneSchnell($bg).plus(Eins()).istGleich()));
                     }
-                    _$($dieses, "#yZähler", $z -> Rechne($z).plus(Eins()).istGleich());
+                    _$($dieses, "#yZähler", $z -> RechneSchnell($z).plus(Eins()).istGleich());
                 }
-                _$($dieses, "#xZähler", $z -> Rechne($z).plus(Eins()).istGleich());
+                _$($dieses, "#xZähler", $z -> RechneSchnell($z).plus(Eins()).istGleich());
             }
         }
 

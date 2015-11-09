@@ -69,7 +69,18 @@ public final class Rechenoperationen {
     public Rechenoperationen minus(final Object $zweiteZahl) {
         _($diese, "#startZeit", System.nanoTime());
         _($diese, "#zweiteZahl", __z($zweiteZahl));
-        _($diese, "#zahlBisJetzt", __z($(__($diese, "#zahlBisJetzt - #zweiteZahl ;"))));
+        if (__eon(_($diese, "#schnell"))) {
+            try {
+                Process prozess = Runtime.getRuntime().exec("./hochgeschwindigkeitsrechnungen subtrahieren " + _($diese, "#zahlBisJetzt") + " " + _($diese, "#zweiteZahl"));
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(prozess.getInputStream()));
+                _($diese, "#zahlBisJetzt", __z(bufferedReader.readLine()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            _($diese, "#zahlBisJetzt", __z($(__($diese, "#zahlBisJetzt - #zweiteZahl ;"))));
+        }
+//        _($diese, "#zahlBisJetzt", __z($(__($diese, "#zahlBisJetzt - #zweiteZahl ;"))));
         _($diese, "#rechnung", __t($(__($diese, "#rechnung + \' - \' + #zweiteZahl ;"))));
         _($diese, "#endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
@@ -81,7 +92,18 @@ public final class Rechenoperationen {
     public Rechenoperationen mal(final Object $zweiteZahl) {
         _($diese, "#startZeit", System.nanoTime());
         _($diese, "#zweiteZahl", __z($zweiteZahl));
-        _($diese, "#zahlBisJetzt", __z($(__($diese, "#zahlBisJetzt * #zweiteZahl ;"))));
+        if (__eon(_($diese, "#schnell"))) {
+            try {
+                Process prozess = Runtime.getRuntime().exec("./hochgeschwindigkeitsrechnungen multiplizieren " + _($diese, "#zahlBisJetzt") + " " + _($diese, "#zweiteZahl"));
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(prozess.getInputStream()));
+                _($diese, "#zahlBisJetzt", __z(bufferedReader.readLine()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            _($diese, "#zahlBisJetzt", __z($(__($diese, "#zahlBisJetzt * #zweiteZahl ;"))));
+        }
+//        _($diese, "#zahlBisJetzt", __z($(__($diese, "#zahlBisJetzt * #zweiteZahl ;"))));
         _($diese, "#rechnung", __t($(__($diese, "#rechnung + \' * \' + #zweiteZahl ;"))));
         _($diese, "#endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
@@ -93,7 +115,18 @@ public final class Rechenoperationen {
     public Rechenoperationen geteiltDurch(final Object $zweiteZahl) {
         _($diese, "#startZeit", System.nanoTime());
         _($diese, "#zweiteZahl", __z($zweiteZahl));
-        _($diese, "#zahlBisJetzt", __z($(__($diese, "#zahlBisJetzt / #zweiteZahl ;"))));
+        if (__eon(_($diese, "#schnell"))) {
+            try {
+                Process prozess = Runtime.getRuntime().exec("./hochgeschwindigkeitsrechnungen dividieren " + _($diese, "#zahlBisJetzt") + " " + _($diese, "#zweiteZahl"));
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(prozess.getInputStream()));
+                _($diese, "#zahlBisJetzt", __z(bufferedReader.readLine()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            _($diese, "#zahlBisJetzt", __z($(__($diese, "#zahlBisJetzt / #zweiteZahl ;"))));
+        }
+//        _($diese, "#zahlBisJetzt", __z($(__($diese, "#zahlBisJetzt / #zweiteZahl ;"))));
         _($diese, "#rechnung", __t($(__($diese, "#rechnung + \' / \' + #zweiteZahl ;"))));
         _($diese, "#endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {
