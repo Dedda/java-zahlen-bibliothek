@@ -20,11 +20,9 @@ package:
 	make starteErlangServer
 	mvn clean test compile assembly:single
 	make stoppeAlleErlangs
-	make clean
 packageSkipTests:
 	make baueC
 	mvn clean compile assembly:single -DskipTests=true
-	make clean
 install:
 	make package
 	cp ./src/main/python/*.py ./
