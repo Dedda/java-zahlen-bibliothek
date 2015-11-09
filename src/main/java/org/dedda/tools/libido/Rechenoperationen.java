@@ -1,5 +1,9 @@
 package org.dedda.tools.libido;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import static org.dedda.tools.libido.$.$;
 import static org.dedda.tools.libido.$.*;
 import static org.dedda.tools.libido.Hilfsmittel.echo;
@@ -18,6 +22,12 @@ public final class Rechenoperationen {
         _($diese, "#rechnung", "" + $ersteZahl);
     }
 
+    public Rechenoperationen(Number $ersteZahl, boolean schnell) {
+        _($diese, "#zahlBisJetzt", $ersteZahl);
+        _($diese, "#rechnung", "" + $ersteZahl);
+        _($diese, "#schnell", schnell);
+    }
+
     /**
      * Leitet den Anfang einer Rechnung ein.
      *
@@ -30,10 +40,24 @@ public final class Rechenoperationen {
         return new Rechenoperationen(__z($ersteZahl));
     }
 
+    public static Rechenoperationen RechneSchnell(final Object $ersteZahl) {
+        return new Rechenoperationen(__z($ersteZahl), true);
+    }
+
     public Rechenoperationen plus(final Object $zweiteZahl) {
         _($diese, "#startZeit", System.nanoTime());
         _($diese, "#zweiteZahl", __z($zweiteZahl));
-        _($diese, "#zahlBisJetzt", __z($(__($diese, "#zahlBisJetzt + #zweiteZahl ;"))));
+        if (__eon(_($diese, "#schnell"))) {
+            try {
+                Process prozess = Runtime.getRuntime().exec("./hochgeschwindigkeitsrechnungen addieren " + _($diese, "#zahlBisJetzt") + " " + _($diese, "#zweiteZahl"));
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(prozess.getInputStream()));
+                _($diese, "#zahlBisJetzt", __z(bufferedReader.readLine()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            _($diese, "#zahlBisJetzt", __z($(__($diese, "#zahlBisJetzt + #zweiteZahl ;"))));
+        }
         _($diese, "#rechnung", __t($(__($diese, "#rechnung + \' + \' + #zweiteZahl ;"))));
         _($diese, "#endZeit", System.nanoTime());
         if ($_ENV("Entkäferer").equals("eingeschaltet")) {

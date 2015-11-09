@@ -3,6 +3,8 @@
 
 extern int hochgeschwindigkeitsaddition(int a, int b);
 extern int hochgeschwindigkeitssubtraktion(int a, int b);
+extern int hochgeschwindigkeitsmultiplikation(int a, int b);
+extern int hochgeschwindigkeitsdivision(int a, int b);
 
 int main(int argc, char *argv[]) {
     int a;
@@ -15,9 +17,9 @@ int main(int argc, char *argv[]) {
     } else if (strcmp(argv[1], "subtrahieren") == 0) {
         c = hochgeschwindigkeitssubtraktion(a, b);
     } else if (strcmp(argv[1], "multiplizieren") == 0) {
-        c = a * b;
+        c = hochgeschwindigkeitsmultiplikation(a, b);
     } else if (strcmp(argv[1], "dividieren") == 0) {
-        c = a / b;
+        c = hochgeschwindigkeitsdivision(a, b);
     }
     printf("%d\n", c);
 }

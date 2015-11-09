@@ -8,6 +8,7 @@ import org.dedda.tools.libido.QuellTextÜbersetzer;
 import static org.dedda.tools.libido.$.*;
 import static org.dedda.tools.libido.Hilfsmittel.echo;
 import static org.dedda.tools.libido.Rechenoperationen.Rechne;
+import static org.dedda.tools.libido.Rechenoperationen.RechneSchnell;
 import static org.dedda.tools.libido.Zahlen.*;
 
 /**
@@ -18,10 +19,10 @@ import static org.dedda.tools.libido.Zahlen.*;
 public class Programm {
 
     public void start() {
-        Rechne(Eins()).plus(Fünf()).geteiltDurch(Drei()).istGleich();
-        Rechne(Eins()).plus(Zwei()).teWurzelVon(Siebenundzwanzig()).istGleich();
-        Rechne(Ers()).teWurzelVon(Vier()).istGleich();
-        Rechne(Einundzwanzig()).steWurzelVon(Neunzehn()).istGleich();
+        RechneSchnell(Eins()).plus(Fünf()).geteiltDurch(Drei()).istGleich();
+        RechneSchnell(Eins()).plus(Zwei()).teWurzelVon(Siebenundzwanzig()).istGleich();
+        RechneSchnell(Ers()).teWurzelVon(Vier()).istGleich();
+        RechneSchnell(Einundzwanzig()).steWurzelVon(Neunzehn()).istGleich();
 
         String $text = "Hallo Ich bin \"Hallo\"\n  //Hallo \nHallo/*dasfgHallo*/\n";
         String $expected = "Penis Ich bin \"Hallo\"\n  //Hallo \nPenis/*dasfgHallo*/\n";
