@@ -29,4 +29,4 @@ install:
 	make package
 	cp ./src/main/python/*.py ./
 clean:
-	rm AUSGABE.html Nachrichten.log DATEN.json *.py -rf target logger.beam erl_crash.dump hochgeschwindigkeitsaddition
+	rm AUSGABE.html Nachrichten.log DATEN.json *.py -rf target logger.beam erl_crash.dump hochgeschwindigkeitsrechnungen
