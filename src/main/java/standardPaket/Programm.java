@@ -16,9 +16,9 @@ import static org.dedda.tools.libido.Zahlen.*;
  *
  * @author dedda
  */
-public class Programm {
+public class Programm{
 
-    public void start() {
+    public void start(){
         RechneSchnell(Eins()).plus(Fünf()).geteiltDurch(Drei()).istGleich();
         RechneSchnell(Eins()).plus(Zwei()).teWurzelVon(Siebenundzwanzig()).istGleich();
         RechneSchnell(Ers()).teWurzelVon(Vier()).istGleich();
@@ -28,7 +28,7 @@ public class Programm {
         String $expected = "Penis Ich bin \"Hallo\"\n  //Hallo \nPenis/*dasfgHallo*/\n";
         String $actual = new QuellTextÜbersetzer().übersetzeWort($text, "Hallo", "Penis");
         echo($actual);
-        if (!$expected.equals($actual)) {
+        if(!$expected.equals($actual)){
             echo("FAAAALSCH");
         }
         Fabrik $textFabrik = FabrikErzeuger.gibMirEinenFabrikErzeuger().erzeugeEineFabrikFürDieseKlasse(String.class);

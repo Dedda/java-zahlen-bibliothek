@@ -9,10 +9,10 @@ import java.io.IOException;
  *
  * @author dedda
  */
-public class EreignisseVerarbeiten {
+public class EreignisseVerarbeiten{
 
-    public static boolean loggen(final int $dringlichkeit, final String $nachricht) {
-        try {
+    public static boolean loggen(final int $dringlichkeit, final String $nachricht){
+        try{
             OtpSelf $kunde = new OtpSelf("client", "keks");
             OtpPeer $bediener = new OtpPeer("server@localhost");
             OtpConnection $verbindung = $kunde.connect($bediener);
@@ -23,7 +23,7 @@ public class EreignisseVerarbeiten {
             OtpErlangObject $antwort = $verbindung.receiveMsg().getMsg();
             $verbindung.close();
             return $antwort.toString().contains("ok");
-        } catch (Exception $e) {
+        }catch (Exception $e){
             $e.printStackTrace();
             return false;
         }

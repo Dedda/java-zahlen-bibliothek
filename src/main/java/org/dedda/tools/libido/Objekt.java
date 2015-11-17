@@ -14,7 +14,7 @@ import static org.dedda.tools.libido.Zahlen.Eins;
  *
  * @author dedda
  */
-public class Objekt {
+public class Objekt{
 
     public final UUID $uuid;
     public final long $id;
@@ -22,18 +22,18 @@ public class Objekt {
     private static Map<UUID, Map<Long, Objekt>> $objekte;
     private static Map<UUID, Long> $idZähler;
 
-    static {
+    static{
         $objekte = new HashMap<>();
         $idZähler = new HashMap<>();
     }
 
-    public Objekt() {
+    public Objekt(){
         this.$uuid = randomUUID();
-        if ($objekte.containsKey($uuid)) {
+        if($objekte.containsKey($uuid)){
             long $id = $idZähler.get($uuid);
             this.$id = __gz(Rechne($id).plus(Eins()).istGleich());
             $objekte.get($uuid).put($id, this);
-        } else {
+        }else{
             long $id = 1;
             this.$id = $id;
             $objekte.put($uuid, new HashMap<>());
@@ -42,11 +42,11 @@ public class Objekt {
     }
 
     @Override
-    public boolean equals(final Object $objekt) {
-        if (!($objekt instanceof Objekt)) {
+    public boolean equals(final Object $objekt){
+        if(!($objekt instanceof Objekt)){
             return false;
         }
-        Objekt $umgewandelt = (Objekt) $objekt;
+        Objekt $umgewandelt = (Objekt)$objekt;
         return $umgewandelt.$uuid.equals($uuid) && $umgewandelt.$id == $id;
     }
 

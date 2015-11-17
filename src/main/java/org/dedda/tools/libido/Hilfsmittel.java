@@ -8,26 +8,26 @@ import static org.dedda.tools.libido.EreignisseVerarbeiten.loggen;
  *
  * @author dedda
  */
-public final class Hilfsmittel {
+public final class Hilfsmittel{
 
-    public static Object[] feld(Object... $objekte) {
+    public static Object[] feld(Object... $objekte){
         return $objekte;
     }
 
-    public static int zähle(final Object[] $feld) {
+    public static int zähle(final Object[] $feld){
         return $feld.length;
     }
 
-    public static boolean leer(final Object[] $feld) {
+    public static boolean leer(final Object[] $feld){
         return $feld.length == 0;
     }
 
-    public static void echo(final Object $objekt) {
+    public static void echo(final Object $objekt){
         System.out.println($objekt);
         loggen(0, __t($objekt));
     }
 
-    private Hilfsmittel() {
+    private Hilfsmittel(){
 
     }
 
