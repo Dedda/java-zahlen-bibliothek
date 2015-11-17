@@ -9,16 +9,16 @@ import static org.dedda.tools.libido.$._;
  *
  * @author dedda
  */
-public final class DasVirtuelleUniversum {
+public final class DasVirtuelleUniversum{
 
     private DasVirtuelleUniversum $dieses = this;
 
-    protected DasVirtuelleUniversum(ArrayList<DasVirtuelleObjekt> $objekte) {
+    protected DasVirtuelleUniversum(ArrayList<DasVirtuelleObjekt> $objekte){
         _($dieses, "#objekte", $objekte);
     }
 
-    public ArrayList<DasVirtuelleObjekt> bekommeDieVirtuellenObjekte() {
-        return (ArrayList<DasVirtuelleObjekt>) _($dieses, "#objekte");
+    public ArrayList<DasVirtuelleObjekt> bekommeDieVirtuellenObjekte(){
+        return (ArrayList<DasVirtuelleObjekt>)_($dieses, "#objekte");
     }
 
 }

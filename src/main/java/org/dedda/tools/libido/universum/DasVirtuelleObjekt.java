@@ -14,21 +14,21 @@ import static org.dedda.tools.libido.$._$;
  *
  * @author dedda
  */
-public class DasVirtuelleObjekt extends Objekt {
+public class DasVirtuelleObjekt extends Objekt{
 
     private DasVirtuelleObjekt $dieses = this;
 
-    public DasVirtuelleObjekt(final String $name) {
+    public DasVirtuelleObjekt(final String $name){
         super();
         _($dieses, "#name", $name);
         _($dieses, "#orte", new ArrayList<DieVirtuelleOrtsangabe>());
     }
 
-    public void addOrt(final DieVirtuelleOrtsangabe $dieVirtuelleOrtsangabe) {
+    public void addOrt(final DieVirtuelleOrtsangabe $dieVirtuelleOrtsangabe){
         ((ArrayList<DieVirtuelleOrtsangabe>) _($dieses, "#orte")).add($dieVirtuelleOrtsangabe);
     }
 
-    public void removeOrt(final DieVirtuelleOrtsangabe $dieVirtuelleOrtsangabe) {
+    public void removeOrt(final DieVirtuelleOrtsangabe $dieVirtuelleOrtsangabe){
         ((ArrayList<DieVirtuelleOrtsangabe>) _($dieses, "#orte")).remove($dieVirtuelleOrtsangabe);
     }
 

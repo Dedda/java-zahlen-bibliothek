@@ -10,46 +10,46 @@ import static org.dedda.tools.libido.$.__eon;
  *
  * @author dedda
  */
-public final class DieVirtuelleUniversumsFabrik {
+public final class DieVirtuelleUniversumsFabrik{
 
     private DieVirtuelleUniversumsFabrik $diese = this;
 
-    private DieVirtuelleUniversumsFabrik() {
+    private DieVirtuelleUniversumsFabrik(){
         _($diese, "#objekte", new ArrayList<DasVirtuelleObjekt>());
         _($diese, "#kannMit", true);
     }
 
-    public static DieVirtuelleUniversumsFabrik ErstelleEinUniversum() {
+    public static DieVirtuelleUniversumsFabrik ErstelleEinUniversum(){
         return new DieVirtuelleUniversumsFabrik();
     }
 
-    public DieVirtuelleUniversumsFabrik mit(final DasVirtuelleObjekt $objekt) {
-        if (__eon(_($diese, "#kannMit"))) {
-            ArrayList<DasVirtuelleObjekt> $objekte = (ArrayList<DasVirtuelleObjekt>) _($diese, "#objekte");
+    public DieVirtuelleUniversumsFabrik mit(final DasVirtuelleObjekt $objekt){
+        if(__eon(_($diese, "#kannMit"))){
+            ArrayList<DasVirtuelleObjekt> $objekte =(ArrayList<DasVirtuelleObjekt>)_($diese, "#objekte");
             $objekte.add($objekt);
             _($diese, "#objekte", $objekte);
             _($diese, "#kannMit", false);
-        } else {
+        }else{
             throw new RuntimeException("Nicht bereit für eine \"Mit\"-Verknüpfung");
         }
         return $diese;
     }
 
-    public DieVirtuelleUniversumsFabrik und() {
+    public DieVirtuelleUniversumsFabrik und(){
         _($diese, "#kannMit", true);
         return $diese;
     }
 
-    public DieVirtuelleUniversumsFabrik und(final DasVirtuelleObjekt $objekt) {
-        ArrayList<DasVirtuelleObjekt> $objekte = (ArrayList<DasVirtuelleObjekt>) _($diese, "#objekte");
+    public DieVirtuelleUniversumsFabrik und(final DasVirtuelleObjekt $objekt){
+        ArrayList<DasVirtuelleObjekt> $objekte =(ArrayList<DasVirtuelleObjekt>)_($diese, "#objekte");
         $objekte.add($objekt);
         _($diese, "#objekte", $objekte);
         _($diese, "#kannMit", false);
         return $diese;
     }
 
-    public DasVirtuelleUniversum bitte() {
-        return new DasVirtuelleUniversum((ArrayList<DasVirtuelleObjekt>) _($diese, "#objekte"));
+    public DasVirtuelleUniversum bitte(){
+        return new DasVirtuelleUniversum((ArrayList<DasVirtuelleObjekt>)_($diese, "#objekte"));
     }
 
 }

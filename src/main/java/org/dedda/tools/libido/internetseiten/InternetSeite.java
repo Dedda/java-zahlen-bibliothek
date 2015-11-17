@@ -7,7 +7,7 @@ import com.sun.net.httpserver.HttpExchange;
  *
  * @author dedda
  */
-public interface InternetSeite {
+public interface InternetSeite{
 
     void baueDieSeite(HttpExchange $austausch);
 
